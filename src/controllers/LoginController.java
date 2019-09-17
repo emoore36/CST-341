@@ -12,18 +12,19 @@ import beans.User;
 @RequestMapping("/login")
 public class LoginController {
 
+	// display login form
 	@RequestMapping(path = "/displayform", method = RequestMethod.GET)
 	public ModelAndView displayLoginForm() {
 		return new ModelAndView("loginform", "user", new User());
 	}
 
+	// Process login request
 	@RequestMapping(path = "/authenticate", method = RequestMethod.POST)
 	public ModelAndView authenticate(@ModelAttribute("user") User user) {
 
+		// initialize test variables
 		String testUN = "root";
 		String testPW = "root";
-
-		System.out.println(user.getUsername() + "\t" + user.getPassword());
 
 		// authenticate the user
 		if (!user.getUsername().equals(testUN) || !user.getPassword().equals(testPW))
