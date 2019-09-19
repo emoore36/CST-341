@@ -7,10 +7,12 @@
 <title>Welcome</title>
 </head>
 <body>
-	This is the Dashboard.
-	<br /> If you can read this, it (technically) means you've signed in.
-	<br /> This is Camelback Confectionaries, Limited.
-	<br /> We sell only the best candy in Phoenix, Arizona, and don't let
-	anyone tell you otherwise.
+	<div align="center">
+		<h1>Camelback Confectionaries Ltd.</h1>
+		This is the Dashboard. <br /> If you can read this, it (technically)
+		means you've signed in. <br /> This is Camelback Confectionaries,
+		Limited. <br /> We sell only the best candy in Phoenix, Arizona, and
+		don't let anyone tell you otherwise.
+	</div>
 </body>
 </html>
