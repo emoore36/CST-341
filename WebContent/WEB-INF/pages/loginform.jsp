@@ -14,10 +14,11 @@
 
 		Username: <form:input path="username" />
 			<br />
-		Password: <form:input path="password" />
+		Password: <form:password path="password" />
 			<br />
 			<input type="submit" value="submit" />
 
+		<form:errors path = "*"/>
 		</form:form>
 		<br /> <br />New user? Click <a href="../navigate/newuser">here</a>!
 	</div>

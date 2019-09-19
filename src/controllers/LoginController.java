@@ -26,14 +26,13 @@ public class LoginController {
 	public ModelAndView authenticate(@Valid @ModelAttribute("user") User user, BindingResult result) {
 
 		// initialize test variables
-		String testUN = "root";
-		String testPW = "root";
+		String testUN = "username";
+		String testPW = "password";
 
 		// check constraints
 		if (result.hasErrors())
 			return new ModelAndView("loginform", "user", user);
-		
-		
+
 		// authenticate the user
 		if (!user.getUsername().equals(testUN) || !user.getPassword().equals(testPW))
 			return new ModelAndView("loginform", "user", new User()); // return to form page
