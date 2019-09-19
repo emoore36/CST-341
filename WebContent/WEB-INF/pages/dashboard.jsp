@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Test Page</title>
+<title>Welcome</title>
 </head>
 <body>
-	<div align="center">
-		Username: ${user.username }<br /> Password: ${user.password }<br />
-	</div>
+	This is the Dashboard.
+	<br /> If you can read this, it (technically) means you've signed in.
+	<br /> This is Camelback Confectionaries, Limited.
+	<br /> We sell only the best candy in Phoenix, Arizona, and don't let
+	anyone tell you otherwise.
 </body>
 </html>

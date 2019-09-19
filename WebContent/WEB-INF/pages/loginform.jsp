@@ -8,8 +8,8 @@
 <title>Login Page</title>
 </head>
 <body>
-	<div align="center" style = "line-height: 1.6;">
-	<h2>Log in</h2>
+	<div align="center" style="line-height: 1.6;">
+		<h2>Log in</h2>
 		<form:form method="POST" action="authenticate" modelAttribute="user">
 
 		Username: <form:input path="username" />
@@ -19,6 +19,9 @@
 			<input type="submit" value="submit" />
 
 		</form:form>
+		<br /> <br />New user? Click <a href="../navigate/newuser">here</a>!
 	</div>
+
+
 </body>
 </html>

@@ -30,8 +30,8 @@ public class LoginController {
 		if (!user.getUsername().equals(testUN) || !user.getPassword().equals(testPW))
 			return new ModelAndView("loginform", "user", new User()); // return to form page
 
-		// return success screen
-		return new ModelAndView("index");
+		// return the dashboard
+		return new ModelAndView("dashboard");
 	}
 
 }
