@@ -11,7 +11,7 @@ public class User {
 	private String username;
 	
 	@NotNull(message = "Password cannot be null.")
-	@Size(min = 6, max = 20, message = "Username must be between 6 and 20 characters.")
+	@Size(min = 6, max = 20, message = "Password must be between 6 and 20 characters.")
 	private String password;
 
 	// default constructor

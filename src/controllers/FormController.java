@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import beans.User;
 
 @Controller
-@RequestMapping("/navigate")
+@RequestMapping("/")
 public class FormController {
 	
 	// TODO: FormController from login to registration
@@ -17,6 +17,12 @@ public class FormController {
 	@RequestMapping(path = "/newuser", method = RequestMethod.GET)
 	public ModelAndView displayRegistrationForm() {
 		return new ModelAndView("registrationform", "user", new User());
+	}
+	
+	// display registration form
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public ModelAndView displayWelcome() {
+		return new ModelAndView("welcome", "", null);
 	}
 
 }
