@@ -1,11 +1,17 @@
 package beans;
 
-
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class User {
 
 	// just the things I need right now
+	@NotNull(message = "Username cannot be null.")
+	@Size(min = 6, max = 20, message = "Username must be between 6 and 20 characters.")
 	private String username;
+	
+	@NotNull(message = "Password cannot be null.")
+	@Size(min = 6, max = 20, message = "Username must be between 6 and 20 characters.")
 	private String password;
 
 	// default constructor

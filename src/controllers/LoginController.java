@@ -1,6 +1,9 @@
 package controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,12 +23,17 @@ public class LoginController {
 
 	// Process login request
 	@RequestMapping(path = "/authenticate", method = RequestMethod.POST)
-	public ModelAndView authenticate(@ModelAttribute("user") User user) {
+	public ModelAndView authenticate(@Valid @ModelAttribute("user") User user, BindingResult result) {
 
 		// initialize test variables
 		String testUN = "root";
 		String testPW = "root";
 
+		// check constraints
+		if (result.hasErrors())
+			return new ModelAndView("loginform", "user", user);
+		
+		
 		// authenticate the user
 		if (!user.getUsername().equals(testUN) || !user.getPassword().equals(testPW))
 			return new ModelAndView("loginform", "user", new User()); // return to form page
