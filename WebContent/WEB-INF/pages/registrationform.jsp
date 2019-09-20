@@ -18,6 +18,6 @@
 		on this.</h4>
 	<br />
 	<br /> Already have an account? Click
-	<a href="../login/displayform">here</a> to log in.
+	<a href="login/displayform">here</a> to log in.
 </body>
 </html>
