@@ -20,7 +20,7 @@
 
 		<form:errors path = "*"/>
 		</form:form>
-		<br /> <br />New user? Click <a href="../newuser">here</a>!
+		<br /> <br />New user? Click <a href="../registrationUser/newuser">here</a>!
 	</div>
 
 
