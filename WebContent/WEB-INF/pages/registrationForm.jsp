@@ -7,15 +7,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
-	h4 {
-		color: red;
-	}
+h4 {
+	color: red;
+}
 </style>
 <title>New User</title>
 </head>
 <body>
-<form:form method="POST" action="addUser" modelAttribute="registrationUser">
-<table style="with: 50%">
+	<div align="center">
+		<form:form method="POST" action="addUser"
+			modelAttribute="registrationUser">
+			<table style="with: 50%">
 				<tr>
 					<td>First Name</td>
 					<td><input type="text" name="firstName" /></td>
@@ -28,7 +30,7 @@
 					<td>UserName</td>
 					<td><input type="text" name="username" /></td>
 				</tr>
-					<tr>
+				<tr>
 					<td>Password</td>
 					<td><input type="password" name="password" /></td>
 				</tr>
@@ -36,13 +38,13 @@
 					<td>Email</td>
 					<td><input type="text" name="email" /></td>
 				</tr>
-				</table>
+			</table>
 			<input type="submit" value="Submit" />
-			<form:errors path = "*"/>
-</form:form>
-				
-	<br />
-	<br /> Already have an account? Click
-	<a href="login/displayform">here</a> to log in.
+			<form:errors path="*" />
+		</form:form>
+
+		<br /> <br /> Already have an account? Click <a
+			href="../login/displayform">here</a> to log in.
+	</div>
 </body>
 </html>
