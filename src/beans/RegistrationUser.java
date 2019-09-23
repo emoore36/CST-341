@@ -12,7 +12,11 @@ public class RegistrationUser {
 
 	// default constructor
 	public RegistrationUser() {
-
+		firstName = "";
+		lastName = "";
+		userName = "";
+		password = "";
+		email = "";
 	}
 
 	// non-default constructor
