@@ -17,6 +17,7 @@ h4 {
 	<div align="center">
 		<form:form method="POST" action="addUser"
 			modelAttribute="registrationUser">
+			<h2>Please Enter your Details.</h2>
 			<table style="with: 50%">
 				<tr>
 					<td>First Name</td>
