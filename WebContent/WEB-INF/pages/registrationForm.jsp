@@ -28,7 +28,7 @@ h4 {
 				</tr>
 				<tr>
 					<td>UserName</td>
-					<td><input type="text" name="username" /></td>
+					<td><input type="text" name="userName" /></td>
 				</tr>
 				<tr>
 					<td>Password</td>

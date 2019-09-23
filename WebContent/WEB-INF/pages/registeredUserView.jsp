@@ -9,8 +9,13 @@
 <body>
 	<div align="center">
 		<h2>The User with Following details has been registered.</h2>
-		<h2>FirstName</h2>
-		<p>${firstName}</p>
+		First name: ${user.firstName }<br/>
+		Last name: ${user.lastName }<br/>
+		Username: ${user.userName }<br/>
+		Email: ${user.email }<br/><br/>
+		
+		Click <a href="../login/displayform">here</a> to log in. 
+		
 	</div>
 </body>
 </html>

@@ -22,7 +22,9 @@ public class FormController {
 	// display registration form
 	@RequestMapping(path = "/", method = RequestMethod.GET)
 	public ModelAndView displayWelcome() {
-		return new ModelAndView("welcome", "", null);
+		return new ModelAndView("welcome");
 	}
+	
+	
 
 }

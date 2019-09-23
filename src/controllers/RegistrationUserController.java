@@ -28,8 +28,11 @@ public class RegistrationUserController {
 		}
 		
 		//Assigning and displaying values of new registered user
-		ModelAndView regisModelView =  new ModelAndView("registeredUserView");	
-		regisModelView.addObject("firstName", registrationUser.getFirstName());
-		return regisModelView;
+//		ModelAndView regisModelView =  new ModelAndView("registeredUserView");	
+////		regisModelView.addObject("firstName", registrationUser.getFirstName());
+//		
+//		return regisModelView;
+		
+		return new ModelAndView("registeredUserView", "user", registrationUser);
 	}
 }
