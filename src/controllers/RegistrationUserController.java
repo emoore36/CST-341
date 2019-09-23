@@ -22,6 +22,12 @@ public class RegistrationUserController {
 		return new ModelAndView("registrationForm", "registrationUser", new RegistrationUser());
 	}
 
+	/**
+	 * 
+	 * @param registrationUser - The User model being registered to the database
+	 * @param result - The data validation result that redirects to the form if it has errors.
+	 * @return ModelAndView - 
+	 */
 	@RequestMapping(path = "/addUser", method = RequestMethod.POST)
 	public ModelAndView addUser(@Valid @ModelAttribute("registrationUser") RegistrationUser registrationUser,
 			BindingResult result) {

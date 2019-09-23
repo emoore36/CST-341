@@ -9,7 +9,6 @@ import javax.validation.constraints.Size;
  */
 public class RegistrationUser {
 
-	// TODO: Add Data Validation to attributes.
 	// attributes
 	
 	@NotNull(message = "Please include first name.")

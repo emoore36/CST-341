@@ -11,7 +11,6 @@ import beans.User;
 @RequestMapping("/")
 public class FormController {
 	
-	// TODO: FormController from login to registration
 
 	// display registration form
 	@RequestMapping(path = "/newuser", method = RequestMethod.GET)
