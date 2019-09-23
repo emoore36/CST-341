@@ -1,5 +1,9 @@
 package beans;
 
+/**
+ * @author Owner
+ *
+ */
 public class RegistrationUser {
 
 	// TODO: Add Data Validation to attributes.
@@ -49,39 +53,70 @@ public class RegistrationUser {
 		return firstName;
 	}
 
-	// TODO: Fill out javadocs for other methods.
+	/**
+	 * @param firstName
+	 *            The user's first name.
+	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
+	/**
+	 * @return String - The user's last name.
+	 */
 	public String getLastName() {
 		return lastName;
 	}
 
+	/**
+	 * @param lastName
+	 *            The user's last name.
+	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
 
+	/**
+	 * @return String - The user's username.
+	 */
 	public String getUserName() {
 		return userName;
 	}
 
+	/**
+	 * @param userName
+	 *            - The user's username.
+	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
+	/**
+	 * @return String - The user's password.
+	 */
 	public String getPassword() {
 		return password;
 	}
 
+	/**
+	 * @param password
+	 *            - The user's password.
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 * @return String - The user's email address.
+	 */
 	public String getEmail() {
 		return email;
 	}
 
+	/**
+	 * @param email
+	 *            - The user's email address.
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
