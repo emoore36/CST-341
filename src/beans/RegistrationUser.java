@@ -1,5 +1,8 @@
 package beans;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * @author Owner
  *
@@ -8,10 +11,23 @@ public class RegistrationUser {
 
 	// TODO: Add Data Validation to attributes.
 	// attributes
+	
+	@NotNull(message = "Please include first name.")
 	private String firstName;
+	
+	@NotNull(message = "Please include last name.")
 	private String lastName;
+	
+	@NotNull(message = "Please include username.")
+	@Size(min = 6, max = 16, message = "Username must be between 6 and 16 characters.")
 	private String userName;
+	
+	@NotNull(message = "Please include password.")
+	@Size(min = 6, max = 16, message = "Password must be between 6 and 16 characters.")
 	private String password;
+	
+	@NotNull(message = "Please include email address.")
+	@Size(min = 6, max = 16, message = "Email Address must be between 6 and 16 characters.")
 	private String email;
 
 	// default constructor
