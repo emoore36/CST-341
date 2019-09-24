@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title>
+<title>Dashboard | Camelback Confectionaries Ltd.</title>
 </head>
 <body>
 	<div align="center">
@@ -13,7 +13,7 @@
 		means you've signed in. <br /> This is Camelback Confectionaries,
 		Limited. <br /> We sell only the best candy in Phoenix, Arizona, and
 		don't let anyone tell you otherwise.<br /> <br />Click <a
-			href="displayform">here</a> to log out.<br />
+			href="../Camelback_Confectionaries_Ltd/">here</a> to log out.<br />
 	</div>
 
 

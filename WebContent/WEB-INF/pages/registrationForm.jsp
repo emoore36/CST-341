@@ -11,12 +11,11 @@ h4 {
 	color: red;
 }
 </style>
-<title>New User</title>
+<title>New User | Camelback Confectionaries Ltd.</title>
 </head>
 <body>
 	<div align="center">
-		<form:form method="POST" action="addUser"
-			modelAttribute="registrationUser">
+		<form:form method="POST" action="register" modelAttribute="user">
 			<h2>Please Enter your Details.</h2>
 			<table style="with: 50%">
 				<tr>
@@ -28,8 +27,8 @@ h4 {
 					<td><input type="text" name="lastName" /></td>
 				</tr>
 				<tr>
-					<td>UserName</td>
-					<td><input type="text" name="userName" /></td>
+					<td>Username</td>
+					<td><input type="text" name="username" /></td>
 				</tr>
 				<tr>
 					<td>Password</td>
@@ -41,11 +40,13 @@ h4 {
 				</tr>
 			</table>
 			<input type="submit" value="Submit" />
+			<br />
+			<br />
 			<form:errors path="*" />
 		</form:form>
 
-		<br /> <br /> Already have an account? Click <a
-			href="../login/displayform">here</a> to log in.
+		<br /> <br /> Already have an account? Click <a href="login">here</a>
+		to log in.
 	</div>
 </body>
 </html>

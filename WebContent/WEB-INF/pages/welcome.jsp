@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Welcome</title>
+<title>Welcome | Camelback Confectionaries Ltd.</title>
 </head>
 <body>
 	<div align="center">
 		<h1>Camelback Confectionaries Ltd.</h1>
 		<h2>Welcome</h2>
 
-		Click <a href="login/displayform">here</a> to log in.<br /> Click <a
-			href="registrationUser/newuser">here</a> to create an account.
+		Click <a href="login">here</a> to log in.<br /> Click <a
+			href="newuser">here</a> to create an account.
 	</div>
 </body>
 </html>
