@@ -31,8 +31,8 @@ public class Notification {
 	 *            int - The CRUD action taken. 0 = Create, 1 = Read, 2 = Update, 3 =
 	 *            Delete
 	 * @param result
-	 *            int - Whether the action was successful or not. 0 = Success, 1 =
-	 *            Fail
+	 *            int - Whether the action was successful or not. 0 = Fail, 1 =
+	 *            Success
 	 * @param model
 	 *            Object - The model involved in the CRUD action. Can be a user, a
 	 *            product, and order, or even nothing (in case of page navigation).
@@ -124,7 +124,7 @@ public class Notification {
 			str += "";
 
 		// update text based on the result
-		if (result == 0)
+		if (result == 1)
 			str += " successful.";
 		else
 			str += " failed.";

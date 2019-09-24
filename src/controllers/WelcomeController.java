@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import beans.CredentialSet;
+import beans.Notification;
 import beans.User;
 
 /**
@@ -76,7 +77,7 @@ public class WelcomeController {
 
 		// otherwise, verify the user's credentials
 		if (validateCredentials(cred))
-			return new ModelAndView("dashboard");
+			return new ModelAndView("dashboard", "notif", new Notification(1, 1, cred));
 
 		// if the verification failed, return to the login form
 		return new ModelAndView("loginform", "cred", new CredentialSet());
@@ -100,7 +101,7 @@ public class WelcomeController {
 		// TODO: Connect a BS
 
 		// redirect to dashboard
-		return new ModelAndView("dashboard");
+		return new ModelAndView("dashboard", "notif", new Notification(0, 1, user));
 	}
 
 	// verify credentials
