@@ -3,7 +3,7 @@
 <body>
 	<div align="center">
 		<br />
-		<br /> ${notif.message() } <br />
+		<br /> ${notif.getMessage() } <br />
 		<br /> This is the Dashboard. <br /> If you can read this, it
 		(technically) means you've signed in. <br /> This is Camelback
 		Confectionaries, Limited. <br /> We sell only the best candy in

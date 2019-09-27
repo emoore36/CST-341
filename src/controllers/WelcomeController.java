@@ -28,6 +28,7 @@ public class WelcomeController {
 	// display welcome screen
 	/**
 	 * Displays the welcome screen.
+	 * 
 	 * @return welcome.jsp
 	 */
 	@RequestMapping(path = "/", method = RequestMethod.GET)
@@ -40,6 +41,7 @@ public class WelcomeController {
 	// display login form
 	/**
 	 * Displays the login form.
+	 * 
 	 * @return loginform.jsp
 	 */
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
@@ -52,6 +54,7 @@ public class WelcomeController {
 	// display registration form
 	/**
 	 * Displays the registration form.
+	 * 
 	 * @return registrationForm.jsp
 	 */
 	@RequestMapping(path = "/newuser", method = RequestMethod.GET)
@@ -64,8 +67,11 @@ public class WelcomeController {
 	// process login
 	/**
 	 * Process the user's login credentials.
-	 * @param cred The user's credentials -- CredentialSet
-	 * @param result The data validation results
+	 * 
+	 * @param cred
+	 *            The user's credentials -- CredentialSet
+	 * @param result
+	 *            The data validation results
 	 * @return the login form if unsuccessful, or the dashboard if successful.
 	 */
 	@RequestMapping(path = "/authenticate", method = RequestMethod.POST)
@@ -77,18 +83,22 @@ public class WelcomeController {
 
 		// otherwise, verify the user's credentials
 		if (validateCredentials(cred))
-			return new ModelAndView("dashboard", "notif", new Notification(1, 1, cred));
+			return new ModelAndView("dashboard", "notif", new Notification("Login successful!"));
 
 		// if the verification failed, return to the login form
-		return new ModelAndView("loginform", "cred", new CredentialSet());
+		return new ModelAndView("loginform", "notif", new Notification(""));
 	}
 
 	// process registration
 	/**
 	 * Process the new user's account information.
-	 * @param user The user's account information.
-	 * @param result The data validation results.
-	 * @return the registration form page if unsuccessful, or the dashboard if successful.
+	 * 
+	 * @param user
+	 *            The user's account information.
+	 * @param result
+	 *            The data validation results.
+	 * @return the registration form page if unsuccessful, or the dashboard if
+	 *         successful.
 	 */
 	@RequestMapping(path = "/register", method = RequestMethod.POST)
 	public ModelAndView addUser(@Valid @ModelAttribute("user") User user, BindingResult result) {
@@ -101,13 +111,14 @@ public class WelcomeController {
 		// TODO: Connect a BS
 
 		// redirect to dashboard
-		return new ModelAndView("dashboard", "notif", new Notification(0, 1, user));
+		return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
 	}
 
 	// verify credentials
 	/**
 	 * 
-	 * @param cred The user's login credentials.
+	 * @param cred
+	 *            The user's login credentials.
 	 * @return true if successful, or false if unsuccessful
 	 */
 	private boolean validateCredentials(CredentialSet cred) {
