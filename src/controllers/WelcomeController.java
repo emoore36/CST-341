@@ -86,7 +86,7 @@ public class WelcomeController {
 			return new ModelAndView("dashboard", "notif", new Notification("Login successful!"));
 
 		// if the verification failed, return to the login form
-		return new ModelAndView("loginform", "notif", new Notification(""));
+		return new ModelAndView("loginform", "notif", new Notification("Invalid credentials given. Please try again."));
 	}
 
 	// process registration
