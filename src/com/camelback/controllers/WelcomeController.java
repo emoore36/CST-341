@@ -1,7 +1,7 @@
 /**
  * 
  */
-package controllers;
+package com.camelback.controllers;
 
 import javax.validation.Valid;
 
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import beans.CredentialSet;
-import beans.Notification;
-import beans.User;
+import com.camelback.beans.CredentialSet;
+import com.camelback.beans.Notification;
+import com.camelback.beans.User;
 
 /**
  * 

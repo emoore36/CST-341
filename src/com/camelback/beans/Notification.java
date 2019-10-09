@@ -1,7 +1,7 @@
 /**
  * 
  */
-package beans;
+package com.camelback.beans;
 
 /**
  * @author Eric Moore
