@@ -30,7 +30,7 @@ public interface BusinessInterface<T> {
 	public void init();
 
 	/**
-	 * The initialization method for the business service.
+	 * The destruction method for the business service.
 	 */
 	public void destroy();
 
