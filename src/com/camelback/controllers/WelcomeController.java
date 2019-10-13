@@ -133,6 +133,8 @@ public class WelcomeController {
 	}
 
 	/**
+	 * Set the Business Interface for this Controller.
+	 * 
 	 * @param service
 	 *            the service to set
 	 */

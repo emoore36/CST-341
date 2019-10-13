@@ -3,7 +3,7 @@ package com.camelback.data;
 import com.camelback.beans.User;
 
 public class UserDAO implements DataAccessInterface<User> {
-	
+
 	@Override
 	/**
 	 * Persist the user to the database.

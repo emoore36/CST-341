@@ -40,13 +40,13 @@ public class UserBusinessService implements BusinessInterface<User> {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-
+		// Currently doesn't do anything.
 	}
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-
+		// Currently doesn't do anything.
 	}
 
 }
