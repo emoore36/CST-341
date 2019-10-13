@@ -5,6 +5,7 @@ package com.camelback.controllers;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.camelback.beans.CredentialSet;
 import com.camelback.beans.Notification;
 import com.camelback.beans.User;
+import com.camelback.business.BusinessInterface;
 
 /**
  * 
@@ -25,7 +27,8 @@ import com.camelback.beans.User;
 @RequestMapping("/")
 public class WelcomeController {
 
-	// display welcome screen
+	private BusinessInterface<?> service;
+
 	/**
 	 * Displays the welcome screen.
 	 * 
@@ -38,7 +41,6 @@ public class WelcomeController {
 		return new ModelAndView("welcome");
 	}
 
-	// display login form
 	/**
 	 * Displays the login form.
 	 * 
@@ -51,7 +53,6 @@ public class WelcomeController {
 		return new ModelAndView("loginform", "cred", new CredentialSet());
 	}
 
-	// display registration form
 	/**
 	 * Displays the registration form.
 	 * 
@@ -64,7 +65,6 @@ public class WelcomeController {
 		return new ModelAndView("registrationForm", "user", new User());
 	}
 
-	// process login
 	/**
 	 * Process the user's login credentials.
 	 * 
@@ -82,14 +82,13 @@ public class WelcomeController {
 			return new ModelAndView("loginform", "cred", cred);
 
 		// otherwise, verify the user's credentials
-		if (validateCredentials(cred))
+		if (validateCredentials(cred) == 1)
 			return new ModelAndView("dashboard", "notif", new Notification("Login successful!"));
 
 		// if the verification failed, return to the login form
 		return new ModelAndView("loginform", "notif", new Notification("Invalid credentials given. Please try again."));
 	}
 
-	// process registration
 	/**
 	 * Process the new user's account information.
 	 * 
@@ -114,23 +113,32 @@ public class WelcomeController {
 		return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
 	}
 
-	// verify credentials
 	/**
 	 * 
 	 * @param cred
 	 *            The user's login credentials.
-	 * @return true if successful, or false if unsuccessful
+	 * @return 1 if successful, or 0 if unsuccessful
 	 */
-	private boolean validateCredentials(CredentialSet cred) {
-		String testUN = "username";
-		String testPW = "password";
+	private int validateCredentials(CredentialSet cred) {
 
-		// if the creds don't match, return false
-		if (!cred.getUsername().equals(testUN) || !cred.getPassword().equals(testPW))
-			return false;
+		return service.authenticate(cred);
 
-		// otherwise, return true
-		return true;
+	}
+
+	/**
+	 * @return the service
+	 */
+	public BusinessInterface<?> getService() {
+		return service;
+	}
+
+	/**
+	 * @param service
+	 *            the service to set
+	 */
+	@Autowired
+	public void setService(BusinessInterface<?> service) {
+		this.service = service;
 	}
 
 }
