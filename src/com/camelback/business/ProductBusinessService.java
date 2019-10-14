@@ -1,13 +1,14 @@
 package com.camelback.business;
 
 import com.camelback.beans.CredentialSet;
+import com.camelback.beans.Product;
 
-public class ProductBusinessService implements BusinessInterface {
+public class ProductBusinessService implements BusinessInterface<Product> {
 
 	@Override
-	public int create(Object model) {
+	public int create(Product model) {
 		// TODO Auto-generated method stub
-		return 0;
+		return 1;
 	}
 
 	@Override

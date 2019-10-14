@@ -27,7 +27,7 @@ import com.camelback.business.BusinessInterface;
 @RequestMapping("/")
 public class WelcomeController {
 
-	private BusinessInterface<?> service;
+	private BusinessInterface<User> service;
 
 	/**
 	 * Displays the welcome screen.
@@ -114,6 +114,16 @@ public class WelcomeController {
 	}
 
 	/**
+	 * Displays the dashboard
+	 * 
+	 * @return dashboard.jsp
+	 */
+	@RequestMapping(path = "/dashboard", method = RequestMethod.GET)
+	public ModelAndView viewDashboard() {
+		return new ModelAndView("dashboard");
+	}
+
+	/**
 	 * 
 	 * @param cred
 	 *            The user's login credentials.
@@ -128,7 +138,7 @@ public class WelcomeController {
 	/**
 	 * @return the service
 	 */
-	public BusinessInterface<?> getService() {
+	public BusinessInterface<User> getService() {
 		return service;
 	}
 
@@ -139,7 +149,7 @@ public class WelcomeController {
 	 *            the service to set
 	 */
 	@Autowired
-	public void setService(BusinessInterface<?> service) {
+	public void setService(BusinessInterface<User> service) {
 		this.service = service;
 	}
 

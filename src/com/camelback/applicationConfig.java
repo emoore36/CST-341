@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
+import com.camelback.beans.Product;
 import com.camelback.beans.User;
 import com.camelback.business.BusinessInterface;
 import com.camelback.business.ProductBusinessService;
@@ -33,7 +34,7 @@ public class applicationConfig {
 
 	@Bean(name = "productService", initMethod = "init", destroyMethod = "destroy")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public BusinessInterface<?> getProductService() {
+	public BusinessInterface<Product> getProductService() {
 		return new ProductBusinessService(); // interchangeable concrete implementation
 	}
 
