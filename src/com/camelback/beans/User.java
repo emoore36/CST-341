@@ -17,7 +17,9 @@ public class User {
 	@Size(min = 6, max = 16, message = "Email Address must be between 6 and 16 characters.")
 	private String email;
 
-	// default constructor
+	/**
+	 * A model of the user in the database.
+	 */
 	public User() {
 		firstName = "";
 		lastName = "";
@@ -103,10 +105,4 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	@Override
-	public String toString() {
-		return "user";
-	}
-
 }
