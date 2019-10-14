@@ -16,7 +16,6 @@ public class UserBusinessService implements BusinessInterface<User> {
 	 * 
 	 */
 	public int create(User model) {
-
 		// TODO: User DAO
 		return 1;
 

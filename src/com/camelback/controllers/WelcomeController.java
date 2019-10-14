@@ -107,10 +107,16 @@ public class WelcomeController {
 			return new ModelAndView("registrationForm", "user", user);
 
 		// otherwise, connect a BS and add the user
-		// TODO: Connect a BS
+		int success = service.create(user);
 
-		// redirect to dashboard
-		return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
+		if (success == 1) {
+			// redirect to dashboard
+			return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
+		} else {
+			// redirect to Registration Form
+			return new ModelAndView("registrationForm", "notif", new Notification("Failed to create account."));
+		}
+
 	}
 
 	/**
@@ -124,6 +130,7 @@ public class WelcomeController {
 	}
 
 	/**
+	 * Tests the user's credentials.
 	 * 
 	 * @param cred
 	 *            The user's login credentials.
@@ -136,6 +143,8 @@ public class WelcomeController {
 	}
 
 	/**
+	 * Get the business service for this controller
+	 * 
 	 * @return the service
 	 */
 	public BusinessInterface<User> getService() {

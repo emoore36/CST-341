@@ -26,12 +26,6 @@ public class applicationConfig {
 		return new ProductController();
 	}
 
-	@Bean(name = "userService", initMethod = "init", destroyMethod = "destroy")
-	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public BusinessInterface<?> getService() {
-		return new UserBusinessService(); // interchangeable concrete implementation
-	}
-
 	@Bean(name = "productService", initMethod = "init", destroyMethod = "destroy")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public BusinessInterface<Product> getProductService() {

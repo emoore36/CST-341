@@ -54,13 +54,14 @@ public class ProductController {
 		int flag = service.create(product);
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("allProducts");
 
 		if (flag == 1) {
+			mav.setViewName("allProducts");
 			products.add(product);
 			mav.addObject("products", products);
 			mav.addObject("notif", new Notification("Product added successfully!"));
 		} else {
+			mav.setViewName("addProduct");
 			mav.addObject("notif", new Notification("Failed to add product."));
 		}
 		return mav;
