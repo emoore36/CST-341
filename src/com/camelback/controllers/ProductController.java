@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.camelback.beans.Notification;
 import com.camelback.beans.Product;
-import com.camelback.business.BusinessInterface;
+import com.camelback.business.ProductBusinessInterface;
 
 @Controller
 @RequestMapping("/product")
@@ -23,7 +23,7 @@ public class ProductController {
 
 	private List<Product> products = new ArrayList<Product>();
 
-	private BusinessInterface<Product> service;
+	private ProductBusinessInterface service;
 
 	/**
 	 * Displays the AddProduct form
@@ -81,10 +81,10 @@ public class ProductController {
 	 * Set the BusinessService
 	 * 
 	 * @param service
-	 *            The BusinessService to set.
+	 *            The ProductBusinessService to set.
 	 */
 	@Autowired
-	public void setService(BusinessInterface<Product> service) {
+	public void setService(ProductBusinessInterface service) {
 		this.service = service;
 	}
 

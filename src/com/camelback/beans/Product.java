@@ -12,6 +12,19 @@ import javax.validation.constraints.Size;
  */
 public class Product {
 
+	// product properties.
+	@NotNull(message = "Please include a name.")
+	@Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters.")
+	private String name;
+
+	@NotNull(message = "Please include the price.")
+	@Digits(integer = 6, fraction = 2, message = "Cost must be between 2 and 6 digits.")
+	private String price;
+
+	@NotNull(message = "Please include the brand name.")
+	@Size(min = 2, max = 30, message = "Brand name must be between 2 and 30 characters.")
+	private String brandName;
+
 	/**
 	 * An instance of the Product class.
 	 */
@@ -36,20 +49,6 @@ public class Product {
 		this.price = price;
 		this.brandName = brandName;
 	}
-
-	// product properties.
-
-	@NotNull(message = "Please include a name.")
-	@Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters.")
-	private String name;
-
-	@NotNull(message = "Please include the price.")
-	@Digits(integer = 6, fraction = 2, message = "Cost must be between 2 and 6 digits.")
-	private String price;
-
-	@NotNull(message = "Please include the brand name.")
-	@Size(min = 2, max = 30, message = "Brand name must be between 2 and 30 characters.")
-	private String brandName;
 
 	public String getName() {
 		return name;

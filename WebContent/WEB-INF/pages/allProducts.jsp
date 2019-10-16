@@ -55,32 +55,53 @@
 	<!--  		</div> -->
 
 	<h3>These are all the products.</h3>
-	<div class="card card-inverse card-primary">
-		<div class="card-block">
-			<div class="card-body">
-				<table>
-					<tr>
-						<th><label>Candy Name</label></th>
-						<th><label>Cost</label></th>
-						<th><label>Brand Name</label>
-					</tr>
-					<c:forEach var="product" items="${products}">
-						<tr>
-							<td><label>${product.name}</label></td>
-							<td><label>$${product.price}</label></td>
-							<td><label>${product.brandName}</label></td>
+	<!-- 	<div class="card card-inverse card-primary"> -->
+	<!-- 		<div class="card-block"> -->
+	<!-- 			<div class="card-body"> -->
+	<!-- 				<table> -->
+	<!-- 					<tr> -->
+	<!-- 						<th><label>Candy Name</label></th> -->
+	<!-- 						<th><label>Cost</label></th> -->
+	<!-- 						<th><label>Brand Name</label> -->
+	<!-- 					</tr> -->
+	<%-- 					<c:forEach var="product" items="${products}"> --%>
+	<!-- 						<tr> -->
+	<%-- 							<td><label>${product.name}</label></td> --%>
+	<!-- 							<td><label>$${product.price}</label></td> -->
+	<%-- 							<td><label>${product.brandName}</label></td> --%>
 
-						</tr>
-					</c:forEach>
+	<!-- 						</tr> -->
+	<%-- 					</c:forEach> --%>
 
-					<tr>
-						<td colspan="2"><a href="add">Add another Product</a></td>
-					</tr>
-				</table>
+	<!-- 					<tr> -->
+	<!-- 						<td colspan="2"><a href="add">Add another Product</a></td> -->
+	<!-- 					</tr> -->
+	<!-- 				</table> -->
 
-			</div>
-		</div>
+	<!-- 			</div> -->
+	<!-- 		</div> -->
 
+	<!-- 	</div> -->
+	<div align="center">
+		<table class="table">
+			<thead class="thead thead-warning">
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Price</th>
+					<th scope="col">Brand</th>
+				</tr>
+			</thead>
+
+			<c:forEach var="product" items="${products }">
+				<tr>
+					<td scope="row">${product.name}</td>
+					<td scope="row">${product.price}</td>
+					<td scope="row">${product.brandName}</td>
+				</tr>
+			</c:forEach>
+
+		</table>
+		<a href="add">Add Product</a>
 	</div>
 </body>
 </html>

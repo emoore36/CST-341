@@ -16,7 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.camelback.beans.CredentialSet;
 import com.camelback.beans.Notification;
 import com.camelback.beans.User;
-import com.camelback.business.BusinessInterface;
+import com.camelback.business.SecurityInterface;
+import com.camelback.business.UserBusinessInterface;
 
 /**
  * 
@@ -27,7 +28,8 @@ import com.camelback.business.BusinessInterface;
 @RequestMapping("/")
 public class WelcomeController {
 
-	private BusinessInterface<User> service;
+	private UserBusinessInterface userService;
+	private SecurityInterface securityService;
 
 	/**
 	 * Displays the welcome screen.
@@ -107,7 +109,7 @@ public class WelcomeController {
 			return new ModelAndView("registrationForm", "user", user);
 
 		// otherwise, connect a BS and add the user
-		int success = service.create(user);
+		int success = userService.create(user);
 
 		if (success == 1) {
 			// redirect to dashboard
@@ -138,28 +140,24 @@ public class WelcomeController {
 	 */
 	private int validateCredentials(CredentialSet cred) {
 
-		return service.authenticate(cred);
+		return securityService.authenticate(cred);
 
-	}
-
-	/**
-	 * Get the business service for this controller
-	 * 
-	 * @return the service
-	 */
-	public BusinessInterface<User> getService() {
-		return service;
 	}
 
 	/**
 	 * Set the Business Interface for this Controller.
 	 * 
-	 * @param service
-	 *            the service to set
+	 * @param userService
+	 *            the userService to set
 	 */
 	@Autowired
-	public void setService(BusinessInterface<User> service) {
-		this.service = service;
+	public void setUserService(UserBusinessInterface service) {
+		this.userService = service;
+	}
+
+	@Autowired
+	public void setSecurityService(SecurityInterface service) {
+		this.securityService = service;
 	}
 
 }
