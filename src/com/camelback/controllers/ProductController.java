@@ -1,6 +1,5 @@
 package com.camelback.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -21,9 +20,7 @@ import com.camelback.business.ProductBusinessInterface;
 @RequestMapping("/product")
 public class ProductController {
 
-	private List<Product> products = new ArrayList<Product>();
-
-	private ProductBusinessInterface service;
+	private ProductBusinessInterface<Product> service;
 
 	/**
 	 * Displays the AddProduct form
@@ -54,10 +51,10 @@ public class ProductController {
 		int flag = service.create(product);
 
 		ModelAndView mav = new ModelAndView();
+		List<Product> products = service.findAll();
 
 		if (flag == 1) {
 			mav.setViewName("allProducts");
-			products.add(product);
 			mav.addObject("products", products);
 			mav.addObject("notif", new Notification("Product added successfully!"));
 		} else {
@@ -74,6 +71,9 @@ public class ProductController {
 	 */
 	@RequestMapping(path = "/showAll", method = RequestMethod.GET)
 	public ModelAndView showAll() {
+
+		List<Product> products = service.findAll();
+
 		return new ModelAndView("allProducts", "products", products);
 	}
 
@@ -84,7 +84,7 @@ public class ProductController {
 	 *            The ProductBusinessService to set.
 	 */
 	@Autowired
-	public void setService(ProductBusinessInterface service) {
+	public void setService(ProductBusinessInterface<Product> service) {
 		this.service = service;
 	}
 

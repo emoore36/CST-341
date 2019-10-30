@@ -3,10 +3,14 @@
  */
 package com.camelback.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.camelback.beans.Product;
 
@@ -39,6 +43,33 @@ public class ProductDataService implements ProductDataInterface<Product> {
 		}
 
 		return 0;
+	}
+
+	@Override
+	public List<Product> findAll() {
+
+		// create the productList to populate
+		List<Product> products = new ArrayList<Product>();
+
+		// create SQL String
+		String sql = "SELECT * FROM `PRODUCT_TABLE`";
+
+		try {
+			// execute SQL and loop over
+			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
+
+			// extract products from database
+			while (srs.next()) {
+				products.add(new Product(srs.getString("NAME"), srs.getString("PRICE"), srs.getString("BRAND_NAME"),
+						srs.getString("IMAGE")));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// return the list of products
+		return products;
 	}
 
 	/**

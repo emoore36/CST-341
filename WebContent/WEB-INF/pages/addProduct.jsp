@@ -27,7 +27,7 @@
 				</tr>
 				<tr>
 					<td><form:label path="image">Image</form:label></td>
-					<td><form:input path="image" /></td>
+					<td><input type='file' name='image'></td>
 				</tr>
 			</table>
 			<input type="submit" value="Submit" />

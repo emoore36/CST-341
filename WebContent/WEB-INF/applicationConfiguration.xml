@@ -19,7 +19,7 @@
 		base-package="com.camelback" />
 	<mvc:annotation-driven />
 	<mvc:resources mapping="/resources/**"
-		location="/WEB-INF/resources/" />
+		location="/resources/" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />

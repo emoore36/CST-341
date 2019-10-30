@@ -1,25 +1,24 @@
 package com.camelback.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.camelback.beans.Product;
 import com.camelback.data.ProductDataInterface;
 
-public class ProductBusinessService implements ProductBusinessInterface {
+public class ProductBusinessService implements ProductBusinessInterface<Product> {
 
 	private ProductDataInterface<Product> dao;
 
 	@Override
-	/**
-	 * Create an instance of product.
-	 * 
-	 * @param product
-	 *            the product to create.
-	 * 
-	 * @return 1 if successful, 0 if not.
-	 */
 	public int create(Product product) {
 		return dao.create(product);
+	}
+
+	@Override
+	public List<Product> findAll() {
+		return dao.findAll();
 	}
 
 	/**
