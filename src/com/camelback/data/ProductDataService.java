@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.camelback.data;
 
 import javax.sql.DataSource;
@@ -5,28 +8,28 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.camelback.beans.User;
+import com.camelback.beans.Product;
 
-public class UserDAO implements UserDataInterface<User> {
+/**
+ * @author Owner
+ *
+ */
+public class ProductDataService implements ProductDataInterface<Product> {
 
 	@SuppressWarnings("unused")
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
 	@Override
-	public int create(User user) {
-
-		System.out.println("Entering UserDAO create() with the following values: " + user.printAllValues());
+	public int create(Product product) {
 
 		// create SQL String
-		String sql = "INSERT INTO `USER_TABLE`(`FIRST_NAME`, `LAST_NAME`, `EMAIL`, `USERNAME`, `PASSWORD`, `ROLE`) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO `PRODUCT_TABLE`(`NAME`, `PRICE`, `BRAND_NAME`, `IMAGE`) VALUES (?,?,?,?)";
 
 		try {
 			// get rows affected from stmtExecute
-			int rows = jdbcTemplateObject.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(),
-					user.getCredentials().getUsername(), user.getCredentials().getPassword(), user.getRole());
-
-			System.out.println("Leaving UserDAO create() with rows = " + rows);
+			int rows = jdbcTemplateObject.update(sql, product.getName(), product.getPrice(), product.getBrandName(),
+					product.getImage());
 
 			// return the result
 			return rows;
@@ -47,4 +50,5 @@ public class UserDAO implements UserDataInterface<User> {
 		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
+
 }

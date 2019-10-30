@@ -1,10 +1,13 @@
 package com.camelback.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.camelback.beans.User;
+import com.camelback.data.UserDataInterface;
 
 public class UserBusinessService implements UserBusinessInterface {
 
-	// TODO: Implement DAO
+	private UserDataInterface<User> dao;
 
 	@Override
 	/**
@@ -14,9 +17,21 @@ public class UserBusinessService implements UserBusinessInterface {
 	 *            The user to add.
 	 * 
 	 */
-	public int create(User model) {
-		// TODO: User DAO
-		return 1;
+	public int create(User user) {
+
+		System.out.println("Entering UserBusinessService create() with the following values: " + user.printAllValues());
+
+		return dao.create(user);
 
 	}
+
+	/**
+	 * @param dao
+	 *            the dao to set
+	 */
+	@Autowired
+	public void setDao(UserDataInterface<User> dao) {
+		this.dao = dao;
+	}
+
 }

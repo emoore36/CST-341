@@ -89,6 +89,7 @@
 					<th scope="col">Name</th>
 					<th scope="col">Price</th>
 					<th scope="col">Brand</th>
+					<th scope="col">Image</th>
 				</tr>
 			</thead>
 
@@ -97,6 +98,7 @@
 					<td scope="row">${product.name}</td>
 					<td scope="row">${product.price}</td>
 					<td scope="row">${product.brandName}</td>
+					<td scope="row">${product.image}</td>
 				</tr>
 			</c:forEach>
 

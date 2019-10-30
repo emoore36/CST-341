@@ -17,16 +17,22 @@
 				</tr>
 				<tr>
 					<td>Username</td>
-					<td><input type="text" name="username" /></td>
+					<td><input type="text" name="credentials.username" /></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" /></td>
+					<td><input type="password" name="credentials.password" /></td>
 				</tr>
 				<tr>
 					<td>Email</td>
 					<td><input type="text" name="email" /></td>
 				</tr>
+				<tr>
+					<td>Role</td>
+					<td><input type="radio" name="role" value="Basic User" />Basic
+						User <input type="radio" name="role" value="Administrator" />Administrator</td>
+				</tr>
+
 			</table>
 			<input type="submit" value="Submit" />
 			<br />

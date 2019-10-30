@@ -1,8 +1,13 @@
 package com.camelback.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.camelback.beans.Product;
+import com.camelback.data.ProductDataInterface;
 
 public class ProductBusinessService implements ProductBusinessInterface {
+
+	private ProductDataInterface<Product> dao;
 
 	@Override
 	/**
@@ -14,8 +19,16 @@ public class ProductBusinessService implements ProductBusinessInterface {
 	 * @return 1 if successful, 0 if not.
 	 */
 	public int create(Product product) {
-		// TODO Auto-generated method stub
-		return 1;
+		return dao.create(product);
+	}
+
+	/**
+	 * @param dao
+	 *            the dao to set
+	 */
+	@Autowired
+	public void setDao(ProductDataInterface<Product> dao) {
+		this.dao = dao;
 	}
 
 }

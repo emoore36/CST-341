@@ -3,7 +3,10 @@
  */
 package com.camelback.business;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.camelback.beans.CredentialSet;
+import com.camelback.data.SecurityDataInterface;
 
 /**
  * @author Owner
@@ -11,23 +14,22 @@ import com.camelback.beans.CredentialSet;
  */
 public class SecurityService implements SecurityInterface {
 
+	private SecurityDataInterface<CredentialSet> dao;
+
 	@Override
 	public int authenticate(CredentialSet cred) {
 
-		try {
-			String testUN = "username";
-			String testPW = "password";
+		return dao.find(cred);
 
-			// if the creds don't match, return false
-			if (!cred.getUsername().equals(testUN) || !cred.getPassword().equals(testPW))
-				return 0;
-			else
-				return 1;
-		} catch (Exception e) {
-			System.out.println("SecurityService error:\n");
-			e.printStackTrace();
-			return -1;
-		}
+	}
+
+	/**
+	 * @param dao
+	 *            the dao to set
+	 */
+	@Autowired
+	public void setDao(SecurityDataInterface<CredentialSet> dao) {
+		this.dao = dao;
 	}
 
 }

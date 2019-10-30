@@ -25,6 +25,8 @@ public class Product {
 	@Size(min = 2, max = 30, message = "Brand name must be between 2 and 30 characters.")
 	private String brandName;
 
+	private String image;
+
 	/**
 	 * An instance of the Product class.
 	 */
@@ -32,6 +34,7 @@ public class Product {
 		name = "";
 		price = "";
 		brandName = "";
+		image = "";
 	}
 
 	/**
@@ -43,11 +46,14 @@ public class Product {
 	 *            The price of the product
 	 * @param brandName
 	 *            The name of the product's company brand
+	 * @param image
+	 *            The product's image.
 	 */
-	public Product(String name, String price, String brandName) {
+	public Product(String name, String price, String brandName, String image) {
 		this.name = name;
 		this.price = price;
 		this.brandName = brandName;
+		this.image = image;
 	}
 
 	public String getName() {
@@ -72,6 +78,21 @@ public class Product {
 
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
+	}
+
+	/**
+	 * @return the image
+	 */
+	public String getImage() {
+		return image;
+	}
+
+	/**
+	 * @param image
+	 *            the image to set
+	 */
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 }
