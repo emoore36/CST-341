@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.camelback.beans.User;
 
-public class UserDAO implements UserDataInterface<User> {
+public class UserDataService implements UserDataInterface<User> {
 
 	@SuppressWarnings("unused")
 	private DataSource dataSource;
@@ -16,7 +16,7 @@ public class UserDAO implements UserDataInterface<User> {
 	@Override
 	public int create(User user) {
 
-		System.out.println("Entering UserDAO create() with the following values: " + user.printAllValues());
+		System.out.println("Entering UserDataService create() with the following values: " + user.printAllValues());
 
 		// create SQL String
 		String sql = "INSERT INTO `USER_TABLE`(`FIRST_NAME`, `LAST_NAME`, `EMAIL`, `USERNAME`, `PASSWORD`, `ROLE`) VALUES (?,?,?,?,?,?)";
@@ -26,7 +26,7 @@ public class UserDAO implements UserDataInterface<User> {
 			int rows = jdbcTemplateObject.update(sql, user.getFirstName(), user.getLastName(), user.getEmail(),
 					user.getCredentials().getUsername(), user.getCredentials().getPassword(), user.getRole());
 
-			System.out.println("Leaving UserDAO create() with rows = " + rows);
+			System.out.println("Leaving UserDataService create() with rows = " + rows);
 
 			// return the result
 			return rows;

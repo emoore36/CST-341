@@ -48,10 +48,14 @@ public class ProductController {
 			return new ModelAndView("addProduct", "product", product);
 		}
 
-		int flag = service.create(product);
+		// persist the product
+		int flag = service.addProduct(product);
 
+		// prepare the view
 		ModelAndView mav = new ModelAndView();
-		List<Product> products = service.findAll();
+
+		// get all products
+		List<Product> products = service.getAllProducts();
 
 		if (flag == 1) {
 			mav.setViewName("allProducts");
@@ -72,7 +76,7 @@ public class ProductController {
 	@RequestMapping(path = "/showAll", method = RequestMethod.GET)
 	public ModelAndView showAll() {
 
-		List<Product> products = service.findAll();
+		List<Product> products = service.getAllProducts();
 
 		return new ModelAndView("allProducts", "products", products);
 	}

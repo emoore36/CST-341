@@ -12,12 +12,12 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	private ProductDataInterface<Product> dao;
 
 	@Override
-	public int create(Product product) {
+	public int addProduct(Product product) {
 		return dao.create(product);
 	}
 
 	@Override
-	public List<Product> findAll() {
+	public List<Product> getAllProducts() {
 		return dao.findAll();
 	}
 

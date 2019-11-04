@@ -12,6 +12,7 @@ public class User {
 	@NotNull(message = "Please include last name.")
 	private String lastName;
 
+	@NotNull(message = "Please include login credentials.")
 	private CredentialSet credentials;
 
 	@Pattern(regexp = "^(.+)@(.+)$", message = "Email is invalid. Please try again.")

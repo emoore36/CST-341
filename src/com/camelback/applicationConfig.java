@@ -20,7 +20,7 @@ import com.camelback.data.ProductDataInterface;
 import com.camelback.data.ProductDataService;
 import com.camelback.data.SecurityDataInterface;
 import com.camelback.data.SecurityDataService;
-import com.camelback.data.UserDAO;
+import com.camelback.data.UserDataService;
 import com.camelback.data.UserDataInterface;
 
 @Configuration
@@ -53,7 +53,7 @@ public class applicationConfig {
 	 */
 	@Bean(name = "productService")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public ProductBusinessInterface getProductService() {
+	public ProductBusinessInterface<Product> getProductService() {
 		return new ProductBusinessService(); // interchangeable concrete implementation
 	}
 
@@ -75,7 +75,7 @@ public class applicationConfig {
 	 */
 	@Bean(name = "securityService")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public SecurityInterface getSecurityService() {
+	public SecurityInterface<CredentialSet> getSecurityService() {
 		return new SecurityService(); // interchangeable concrete implementation
 	}
 
@@ -87,7 +87,7 @@ public class applicationConfig {
 	@Bean(name = "userDao")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public UserDataInterface<User> getUserDao() {
-		return new UserDAO(); // interchangeable concrete implementation
+		return new UserDataService(); // interchangeable concrete implementation
 	}
 
 	/**

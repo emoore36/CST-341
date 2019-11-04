@@ -11,13 +11,13 @@ public interface ProductBusinessInterface<T> {
 	 *            The product to create.
 	 * @return 1 if successful, 0 if not.
 	 */
-	public int create(T product);
+	public int addProduct(T product);
 
 	/**
 	 * Retrieve all products from the database.
 	 * 
 	 * @return a list of products
 	 */
-	public List<T> findAll();
+	public List<T> getAllProducts();
 
 }

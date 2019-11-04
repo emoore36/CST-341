@@ -12,7 +12,7 @@ import com.camelback.data.SecurityDataInterface;
  * @author Owner
  *
  */
-public class SecurityService implements SecurityInterface {
+public class SecurityService implements SecurityInterface<CredentialSet> {
 
 	private SecurityDataInterface<CredentialSet> dao;
 
