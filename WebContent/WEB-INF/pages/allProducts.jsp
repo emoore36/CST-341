@@ -16,6 +16,7 @@
 					<th align="center" scope="col">Price</th>
 					<th align="center" scope="col">Brand</th>
 					<th align="center" scope="col">Image</th>
+					<th align="center" scope="col">Admin</th>
 				</tr>
 			</thead>
 
@@ -26,6 +27,7 @@
 					<td scope="row">${product.brandName}</td>
 					<td scope="row"><img width=20%
 						src="../resources/images/${product.image }" /></td>
+						
 				</tr>
 			</c:forEach>
 

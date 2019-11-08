@@ -29,7 +29,7 @@ import com.camelback.business.UserBusinessInterface;
 public class WelcomeController {
 
 	private UserBusinessInterface userService;
-	private SecurityInterface securityService;
+	private SecurityInterface<CredentialSet> securityService;
 
 	/**
 	 * Displays the welcome screen.
@@ -156,7 +156,7 @@ public class WelcomeController {
 	}
 
 	@Autowired
-	public void setSecurityService(SecurityInterface service) {
+	public void setSecurityService(SecurityInterface<CredentialSet> service) {
 		this.securityService = service;
 	}
 
