@@ -30,4 +30,9 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 		this.dao = dao;
 	}
 
+	@Override
+	public Product findByID(int ID) {
+		return dao.findBy(ID);
+	}
+
 }

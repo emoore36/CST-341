@@ -73,20 +73,31 @@ public class ProductDataService implements DataAccessInterface<Product> {
 		return products;
 	}
 
-	/**
-	 * @param dataSource
-	 *            the dataSource to set
-	 */
-	@Autowired
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
-	}
-
 	@Override
 	public Product findBy(int ID) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Product product = new Product();
+
+		// create SQL String
+		String sql = "SELECT * FROM `PRODUCT_TABLE` WHERE `ID` = ? LIMIT 1";
+
+		try {
+			// execute SQL and loop over
+			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, ID);
+
+			// extract products from database
+			while (srs.next()) {
+				product = new Product(srs.getInt("ID"), srs.getString("NAME"), srs.getString("PRICE"),
+						srs.getString("BRAND_NAME"), srs.getString("IMAGE"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DatabaseException(e);
+		}
+
+		return product;
+
 	}
 
 	@Override
@@ -99,6 +110,16 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	public int delete(int ID) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	/**
+	 * @param dataSource
+	 *            the dataSource to set
+	 */
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
 }

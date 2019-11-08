@@ -20,4 +20,13 @@ public interface ProductBusinessInterface<T> {
 	 */
 	public List<T> getAllProducts();
 
+	/**
+	 * Find a product by the given ID
+	 * 
+	 * @param ID
+	 *            The ID by which to search
+	 * @return the product at the given ID
+	 */
+	public T findByID(int ID);
+
 }

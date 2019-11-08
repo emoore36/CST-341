@@ -1,3 +1,4 @@
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -10,8 +11,9 @@
 <body>
 	<div align="center">
 		<table class="table" align="center">
-			<thead class="thead thead-warning" align = "center">
+			<thead class="thead thead-warning" align="center">
 				<tr>
+					<th align="center" scope="col">View</th>
 					<th align="center" scope="col">Name</th>
 					<th align="center" scope="col">Price</th>
 					<th align="center" scope="col">Brand</th>
@@ -23,7 +25,12 @@
 
 			<c:forEach var="product" items="${products }">
 				<tr align="center">
-					<td scope="row">${product.name}</td>
+					<td scope="row"><form:form action="showOneProduct"
+							method="POST">
+							<input type="hidden" name="ID" value="${product.ID}" />
+							<input type="submit" value="View" />
+						</form:form></td>
+					<td scope="row">${product.name }</td>
 					<td scope="row">${product.price}</td>
 					<td scope="row">${product.brandName}</td>
 					<td scope="row"><img width=20%

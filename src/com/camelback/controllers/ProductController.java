@@ -89,6 +89,26 @@ public class ProductController {
 		return new ModelAndView("allProducts", "products", products);
 	}
 
+	// TODO: JavaDoc this.
+	@RequestMapping(path = "/showOneProduct", method = RequestMethod.POST)
+	public ModelAndView showOneProduct(int ID) {
+
+		ModelAndView mav = new ModelAndView();
+		Product product = new Product();
+
+		try {
+			product = service.findByID(ID);
+
+			mav.setViewName("showOneProduct");
+			mav.addObject("product", product);
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
+		}
+
+		return mav;
+	}
+
 	/**
 	 * Set the BusinessService
 	 * 
