@@ -31,7 +31,7 @@ public class SecurityDataService implements SecurityDataInterface<CredentialSet>
 		String sql = "SELECT * FROM `USER_TABLE` WHERE `USERNAME` = ? AND `PASSWORD` = ? LIMIT 1";
 
 		try {
-			// execute SQL and loop over
+			// execute SQL and retrieve info
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, cred.getUsername(), cred.getPassword());
 
 			if (srs.next()) {

@@ -16,12 +16,11 @@ import com.camelback.business.UserBusinessInterface;
 import com.camelback.business.UserBusinessService;
 import com.camelback.controllers.ProductController;
 import com.camelback.controllers.WelcomeController;
-import com.camelback.data.ProductDataInterface;
+import com.camelback.data.DataAccessInterface;
 import com.camelback.data.ProductDataService;
 import com.camelback.data.SecurityDataInterface;
 import com.camelback.data.SecurityDataService;
 import com.camelback.data.UserDataService;
-import com.camelback.data.UserDataInterface;
 
 @Configuration
 public class applicationConfig {
@@ -86,7 +85,7 @@ public class applicationConfig {
 	 */
 	@Bean(name = "userDao")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public UserDataInterface<User> getUserDao() {
+	public DataAccessInterface<User> getUserDao() {
 		return new UserDataService(); // interchangeable concrete implementation
 	}
 
@@ -108,7 +107,7 @@ public class applicationConfig {
 	 */
 	@Bean(name = "productDao")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
-	public ProductDataInterface<Product> getProductDao() {
+	public DataAccessInterface<Product> getProductDao() {
 		return new ProductDataService(); // interchangeable concrete implementation
 	}
 

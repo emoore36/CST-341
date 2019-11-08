@@ -1,5 +1,7 @@
 package com.camelback.data;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.camelback.beans.User;
 
-public class UserDataService implements UserDataInterface<User> {
+public class UserDataService implements DataAccessInterface<User> {
 
 	@SuppressWarnings("unused")
 	private DataSource dataSource;
@@ -46,5 +48,29 @@ public class UserDataService implements UserDataInterface<User> {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User findBy(int ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(User t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(int ID) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

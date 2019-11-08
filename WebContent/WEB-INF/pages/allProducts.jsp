@@ -10,13 +10,14 @@
 <body>
 	<div align="center">
 		<table class="table" align="center">
-			<thead class="thead thead-warning">
+			<thead class="thead thead-warning" align = "center">
 				<tr>
 					<th align="center" scope="col">Name</th>
 					<th align="center" scope="col">Price</th>
 					<th align="center" scope="col">Brand</th>
 					<th align="center" scope="col">Image</th>
-					<th align="center" scope="col">Admin</th>
+					<th align="center" scope="col">Edit</th>
+					<th align="center" scope="col">Delete</th>
 				</tr>
 			</thead>
 
@@ -27,7 +28,23 @@
 					<td scope="row">${product.brandName}</td>
 					<td scope="row"><img width=20%
 						src="../resources/images/${product.image }" /></td>
-						
+					<td scope="row">
+						<form action="displayUpdateForm" method="POST">
+
+							<input type="hidden" value="${product.ID }" /> <input
+								type="submit" value="Edit" />
+
+						</form>
+					</td>
+					<td>
+						<form action="delete" method="POST">
+
+							<input type="hidden" value="${product.ID }" /> <input
+								type="submit" value="Delete" />
+
+						</form>
+					</td>
+
 				</tr>
 			</c:forEach>
 

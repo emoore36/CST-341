@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
  */
 public class Product {
 
+	private int ID;
+
 	// product properties.
 	@NotNull(message = "Please include a name.")
 	@Size(min = 2, max = 30, message = "Name must be between 2 and 30 characters.")
@@ -31,6 +33,7 @@ public class Product {
 	 * An instance of the Product class.
 	 */
 	public Product() {
+		ID = 0;
 		name = "";
 		price = "";
 		brandName = "";
@@ -39,6 +42,9 @@ public class Product {
 
 	/**
 	 * An instance of the Product class.
+	 * 
+	 * @param ID
+	 *            The ID of the product
 	 * 
 	 * @param name
 	 *            The name of the product
@@ -49,11 +55,27 @@ public class Product {
 	 * @param image
 	 *            The product's image.
 	 */
-	public Product(String name, String price, String brandName, String image) {
+	public Product(int ID, String name, String price, String brandName, String image) {
+		this.ID = ID;
 		this.name = name;
 		this.price = price;
 		this.brandName = brandName;
 		this.image = image;
+	}
+
+	/**
+	 * @return the iD
+	 */
+	public int getID() {
+		return ID;
+	}
+
+	/**
+	 * @param iD
+	 *            the iD to set
+	 */
+	public void setID(int iD) {
+		ID = iD;
 	}
 
 	public String getName() {

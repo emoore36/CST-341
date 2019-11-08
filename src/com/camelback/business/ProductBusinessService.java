@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.camelback.beans.Product;
-import com.camelback.data.ProductDataInterface;
+import com.camelback.data.DataAccessInterface;
 
 public class ProductBusinessService implements ProductBusinessInterface<Product> {
 
-	private ProductDataInterface<Product> dao;
+	private DataAccessInterface<Product> dao;
 
 	@Override
 	public int addProduct(Product product) {
@@ -26,7 +26,7 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	 *            the dao to set
 	 */
 	@Autowired
-	public void setDao(ProductDataInterface<Product> dao) {
+	public void setDao(DataAccessInterface<Product> dao) {
 		this.dao = dao;
 	}
 

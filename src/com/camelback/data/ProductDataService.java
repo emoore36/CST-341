@@ -18,7 +18,7 @@ import com.camelback.beans.Product;
  * @author Owner
  *
  */
-public class ProductDataService implements ProductDataInterface<Product> {
+public class ProductDataService implements DataAccessInterface<Product> {
 
 	@SuppressWarnings("unused")
 	private DataSource dataSource;
@@ -60,7 +60,7 @@ public class ProductDataService implements ProductDataInterface<Product> {
 
 			// extract products from database
 			while (srs.next()) {
-				products.add(new Product(srs.getString("NAME"), srs.getString("PRICE"), srs.getString("BRAND_NAME"),
+				products.add(new Product(srs.getInt("ID"), srs.getString("NAME"), srs.getString("PRICE"), srs.getString("BRAND_NAME"),
 						srs.getString("IMAGE")));
 			}
 
@@ -80,6 +80,24 @@ public class ProductDataService implements ProductDataInterface<Product> {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
+	}
+
+	@Override
+	public Product findBy(int ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int update(Product t) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(int ID) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

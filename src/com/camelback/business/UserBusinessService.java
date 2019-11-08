@@ -3,11 +3,11 @@ package com.camelback.business;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.camelback.beans.User;
-import com.camelback.data.UserDataInterface;
+import com.camelback.data.DataAccessInterface;
 
 public class UserBusinessService implements UserBusinessInterface {
 
-	private UserDataInterface<User> dao;
+	private DataAccessInterface<User> dao;
 
 	@Override
 	/**
@@ -30,7 +30,7 @@ public class UserBusinessService implements UserBusinessInterface {
 	 *            the dao to set
 	 */
 	@Autowired
-	public void setDao(UserDataInterface<User> dao) {
+	public void setDao(DataAccessInterface<User> dao) {
 		this.dao = dao;
 	}
 
