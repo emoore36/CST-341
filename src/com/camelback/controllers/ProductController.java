@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.camelback.beans.Notification;
 import com.camelback.beans.Product;
 import com.camelback.business.ProductBusinessInterface;
+import com.camelback.util.DatabaseException;
 
 @Controller
 @RequestMapping("/product")
@@ -48,23 +49,30 @@ public class ProductController {
 			return new ModelAndView("addProduct", "product", product);
 		}
 
-		// persist the product
-		int flag = service.addProduct(product);
-
 		// prepare the view
 		ModelAndView mav = new ModelAndView();
 
-		// get all products
-		List<Product> products = service.getAllProducts();
+		try {
 
-		if (flag == 1) {
-			mav.setViewName("allProducts");
-			mav.addObject("products", products);
-			mav.addObject("notif", new Notification("Product added successfully!"));
-		} else {
-			mav.setViewName("addProduct");
-			mav.addObject("notif", new Notification("Failed to add product."));
+			// persist the product
+			int flag = service.addProduct(product);
+
+			// get all products
+			List<Product> products = service.getAllProducts();
+
+			if (flag == 1) {
+				mav.setViewName("allProducts");
+				mav.addObject("products", products);
+				mav.addObject("notif", new Notification("Product added successfully!"));
+			} else {
+				mav.setViewName("addProduct");
+				mav.addObject("notif", new Notification("Failed to add product."));
+			}
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
 		}
+
 		return mav;
 	}
 

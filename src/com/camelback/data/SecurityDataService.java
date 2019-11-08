@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.camelback.beans.CredentialSet;
+import com.camelback.util.DatabaseException;
 
 /**
  * @author Owner
@@ -42,9 +43,8 @@ public class SecurityDataService implements SecurityDataInterface<CredentialSet>
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new DatabaseException(e);
 		}
-
-		return 0;
 	}
 
 	/**

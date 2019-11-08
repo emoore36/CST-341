@@ -18,6 +18,7 @@ import com.camelback.beans.Notification;
 import com.camelback.beans.User;
 import com.camelback.business.SecurityInterface;
 import com.camelback.business.UserBusinessInterface;
+import com.camelback.util.DatabaseException;
 
 /**
  * 
@@ -79,16 +80,28 @@ public class WelcomeController {
 	@RequestMapping(path = "/authenticate", method = RequestMethod.POST)
 	public ModelAndView authenticate(@Valid @ModelAttribute("cred") CredentialSet cred, BindingResult result) {
 
+		ModelAndView mav = new ModelAndView();
+
 		// if validation errors, return to form page with credentials
 		if (result.hasErrors())
 			return new ModelAndView("loginform", "cred", cred);
 
-		// otherwise, verify the user's credentials
-		if (validateCredentials(cred) == 1)
-			return new ModelAndView("dashboard", "notif", new Notification("Login successful!"));
+		try {
 
-		// if the verification failed, return to the login form
-		return new ModelAndView("loginform", "notif", new Notification("Invalid credentials given. Please try again."));
+			// otherwise, verify the user's credentials
+			if (validateCredentials(cred) == 1)
+				return new ModelAndView("dashboard", "notif", new Notification("Login successful!"));
+
+			// if the verification failed, return to the login form
+			return new ModelAndView("loginform", "notif",
+					new Notification("Invalid credentials given. Please try again."));
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
+		}
+
+		return mav;
+
 	}
 
 	/**
@@ -108,16 +121,26 @@ public class WelcomeController {
 		if (result.hasErrors())
 			return new ModelAndView("registrationForm", "user", user);
 
-		// otherwise, connect a BS and add the user
-		int success = userService.create(user);
+		ModelAndView mav = new ModelAndView();
 
-		if (success == 1) {
-			// redirect to dashboard
-			return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
-		} else {
-			// redirect to Registration Form
-			return new ModelAndView("registrationForm", "notif", new Notification("Failed to create account."));
+		try {
+
+			// otherwise, connect a BS and add the user
+			int success = userService.create(user);
+
+			if (success == 1) {
+				// redirect to dashboard
+				return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
+			} else {
+				// redirect to Registration Form
+				return new ModelAndView("registrationForm", "notif", new Notification("Failed to create account."));
+			}
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
 		}
+
+		return mav;
 
 	}
 

@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.camelback.beans.Product;
+import com.camelback.util.DatabaseException;
 
 /**
  * @author Owner
@@ -40,9 +41,8 @@ public class ProductDataService implements DataAccessInterface<Product> {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new DatabaseException(e);
 		}
-
-		return 0;
 	}
 
 	@Override
@@ -60,12 +60,13 @@ public class ProductDataService implements DataAccessInterface<Product> {
 
 			// extract products from database
 			while (srs.next()) {
-				products.add(new Product(srs.getInt("ID"), srs.getString("NAME"), srs.getString("PRICE"), srs.getString("BRAND_NAME"),
-						srs.getString("IMAGE")));
+				products.add(new Product(srs.getInt("ID"), srs.getString("NAME"), srs.getString("PRICE"),
+						srs.getString("BRAND_NAME"), srs.getString("IMAGE")));
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new DatabaseException(e);
 		}
 
 		// return the list of products

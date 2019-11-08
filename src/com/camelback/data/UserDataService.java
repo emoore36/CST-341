@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.camelback.beans.User;
+import com.camelback.util.DatabaseException;
 
 public class UserDataService implements DataAccessInterface<User> {
 
@@ -35,9 +36,8 @@ public class UserDataService implements DataAccessInterface<User> {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new DatabaseException(e);
 		}
-
-		return 0;
 	}
 
 	/**
