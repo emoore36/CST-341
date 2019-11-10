@@ -3,11 +3,13 @@ package com.camelback.controllers;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -101,6 +103,55 @@ public class ProductController {
 
 			mav.setViewName("showOneProduct");
 			mav.addObject("product", product);
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
+		}
+
+		return mav;
+	}
+	
+	// TODO: JavaDoc this.
+		@RequestMapping(path = "/displayUpdateForm", method = RequestMethod.POST)
+	public ModelAndView displayUpdateForm(int ID) {
+
+		ModelAndView mav = new ModelAndView();
+		Product product = new Product();
+
+		try {
+			product = service.findByID(ID);
+
+			mav.setViewName("displayUpdateForm");
+			mav.addObject("product", product);
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
+		}
+
+		return mav;
+	}
+	
+	@RequestMapping(path = "/updateProduct", method = RequestMethod.POST)
+	public ModelAndView updateProduct(Product product) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			service.updateProduct(product);
+			List<Product> products = service.getAllProducts();
+			return new ModelAndView("allProducts", "products", products);
+
+		} catch (DatabaseException e) {
+			mav.setViewName("displayError");
+		}
+
+		return mav;
+	}
+	@RequestMapping(path = "/deleteProduct", method = RequestMethod.POST)
+	public ModelAndView deleteProduct(int ID) {
+		ModelAndView mav = new ModelAndView();
+		try {
+			service.deleteProduct(ID);
+			List<Product> products = service.getAllProducts();
+			return new ModelAndView("allProducts", "products", products);
 
 		} catch (DatabaseException e) {
 			mav.setViewName("displayError");

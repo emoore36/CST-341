@@ -35,4 +35,16 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 		return dao.findBy(ID);
 	}
 
+	@Override
+	public int updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		return dao.update(product);
+	}
+
+	@Override
+	public int deleteProduct(int ID) {
+		// TODO Auto-generated method stub
+		return dao.delete(ID);
+	}
+
 }

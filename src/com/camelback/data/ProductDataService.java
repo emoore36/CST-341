@@ -102,14 +102,41 @@ public class ProductDataService implements DataAccessInterface<Product> {
 
 	@Override
 	public int update(Product t) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		// create SQL String
+		int ID = t.getID();
+		String sql = "UPDATE `PRODUCT_TABLE` SET `NAME` = ?,  `PRICE` = ?, `BRAND_NAME` = ?, `IMAGE` = ?"
+				+ "WHERE ID = ?";
+
+		try {
+			// get rows affected from stmtExecute
+			int rows = jdbcTemplateObject.update(sql, t.getName(), t.getPrice(), t.getBrandName(),t.getImage(), t.getID());
+
+			// return the result
+			return rows;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DatabaseException(e);
+		}
 	}
 
 	@Override
 	public int delete(int ID) {
-		// TODO Auto-generated method stub
-		return 0;
+		// create SQL String
+		String sql = "DELETE FROM `PRODUCT_TABLE` WHERE `ID` = ?";
+
+		try {
+			// get rows affected from stmtExecute
+			int rows = jdbcTemplateObject.update(sql, ID);
+
+			// return the result
+			return rows;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new DatabaseException(e);
+		}
 	}
 
 	/**

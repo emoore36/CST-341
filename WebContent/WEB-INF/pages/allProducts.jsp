@@ -36,17 +36,17 @@
 					<td scope="row"><img width=20%
 						src="../resources/images/${product.image }" /></td>
 					<td scope="row">
-						<form action="displayUpdateForm" method="POST">
+						<form:form action="displayUpdateForm" method="POST">
 
-							<input type="hidden" value="${product.ID }" /> <input
-								type="submit" value="Edit" />
+							<input type="hidden" name="ID" value="${product.ID}" /> 
+							<input type="submit" value="Edit" />
 
-						</form>
+						</form:form>
 					</td>
 					<td>
-						<form action="delete" method="POST">
+						<form action="deleteProduct" method="POST">
 
-							<input type="hidden" value="${product.ID }" /> <input
+							<input type="hidden" name="ID" value="${product.ID}" /> <input
 								type="submit" value="Delete" />
 
 						</form>

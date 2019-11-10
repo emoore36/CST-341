@@ -28,5 +28,15 @@ public interface ProductBusinessInterface<T> {
 	 * @return the product at the given ID
 	 */
 	public T findByID(int ID);
+	
+	/**
+	 * Update product 
+	 * 
+	 *            The ID by which to search
+	 * @return the product at the given ID
+	 */
+	public int updateProduct(T product);
+	
+	public int deleteProduct(int ID);
 
 }
