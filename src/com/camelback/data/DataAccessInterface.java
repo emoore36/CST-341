@@ -15,6 +15,7 @@ public interface DataAccessInterface<T> {
 	 * Create an instance of the relevant model to the database.
 	 * 
 	 * @return The number of rows affected.
+	 * @throws ItemAlreadyExistsException
 	 */
 	public int create(T t);
 

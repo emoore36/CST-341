@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.camelback.beans.User;
 import com.camelback.util.DatabaseException;
@@ -20,6 +21,17 @@ public class UserDataService implements DataAccessInterface<User> {
 	public int create(User user) {
 
 		System.out.println("Entering UserDataService create() with the following values: " + user.printAllValues());
+
+		// check to see if user already exists
+		// In this case, assume duplicate username means duplicate user.
+		String preSQL = "SELECT * FROM `USER_TABLE` WHERE `USERNAME` = ?";
+
+		// execute SQL and retrieve info
+		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(preSQL, user.getCredentials().getUsername());
+
+		if (srs.next()) {
+			return -2;
+		}
 
 		// create SQL String
 		String sql = "INSERT INTO `USER_TABLE`(`FIRST_NAME`, `LAST_NAME`, `EMAIL`, `USERNAME`, `PASSWORD`, `ROLE`) VALUES (?,?,?,?,?,?)";

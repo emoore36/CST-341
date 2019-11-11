@@ -31,18 +31,18 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	}
 
 	@Override
-	public Product findByID(int ID) {
+	public Product getProductByID(int ID) {
 		return dao.findBy(ID);
 	}
 
 	@Override
-	public int updateProduct(Product product) {
+	public int editProduct(Product product) {
 		// TODO Auto-generated method stub
 		return dao.update(product);
 	}
 
 	@Override
-	public int deleteProduct(int ID) {
+	public int removeProduct(int ID) {
 		// TODO Auto-generated method stub
 		return dao.delete(ID);
 	}

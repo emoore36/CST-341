@@ -7,6 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>All products</title>
+
+<script type="text/javascript">
+	function promptUser() {
+		return confirm("Are you sure you wish to delete this item?");
+
+	}
+</script>
+
 </head>
 <body>
 	<div align="center">
@@ -35,19 +43,18 @@
 					<td scope="row">${product.brandName}</td>
 					<td scope="row"><img width=20%
 						src="../resources/images/${product.image }" /></td>
-					<td scope="row">
-						<form:form action="displayUpdateForm" method="POST">
+					<td scope="row"><form:form action="displayUpdateForm"
+							method="POST">
 
-							<input type="hidden" name="ID" value="${product.ID}" /> 
-							<input type="submit" value="Edit" />
+							<input type="hidden" name="ID" value="${product.ID}" />
+							<input onclick="return promptUser();" type="submit" value="Edit" />
 
-						</form:form>
-					</td>
+						</form:form></td>
 					<td>
 						<form action="deleteProduct" method="POST">
 
 							<input type="hidden" name="ID" value="${product.ID}" /> <input
-								type="submit" value="Delete" />
+								onclick="return promptUser();" type="submit" value="Delete" />
 
 						</form>
 					</td>

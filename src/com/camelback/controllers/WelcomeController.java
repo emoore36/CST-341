@@ -131,6 +131,10 @@ public class WelcomeController {
 			if (success == 1) {
 				// redirect to dashboard
 				return new ModelAndView("dashboard", "notif", new Notification("Account created successfully!"));
+			} else if (success == -2) {
+				// redirect to Registration Form
+				return new ModelAndView("registrationForm", "notif",
+						new Notification("Username already taken. Please try again."));
 			} else {
 				// redirect to Registration Form
 				return new ModelAndView("registrationForm", "notif", new Notification("Failed to create account."));

@@ -22,7 +22,6 @@ public class UserBusinessService implements UserBusinessInterface {
 		System.out.println("Entering UserBusinessService create() with the following values: " + user.printAllValues());
 
 		return dao.create(user);
-
 	}
 
 	/**

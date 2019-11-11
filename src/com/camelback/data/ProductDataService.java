@@ -28,6 +28,25 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	@Override
 	public int create(Product product) {
 
+		// check and ensure that the product does not already exist
+		// In this case, we will consider a duplicate name OR image as a duplicate
+		// product
+		String preSQL = "SELECT * FROM `PRODUCT_TABLE` WHERE `NAME` = ? OR `IMAGE` = ?";
+
+		try {
+			// execute SQL and loop over
+			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(preSQL, product.getName(), product.getImage());
+
+			if (srs.next()) {
+				return -2;
+			}
+
+		} catch (Exception e) {
+			// issue with the database. Log and throw an unchecked exception.
+			e.printStackTrace();
+			throw new DatabaseException(e);
+		}
+
 		// create SQL String
 		String sql = "INSERT INTO `PRODUCT_TABLE`(`NAME`, `PRICE`, `BRAND_NAME`, `IMAGE`) VALUES (?,?,?,?)";
 
@@ -40,6 +59,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 			return rows;
 
 		} catch (Exception e) {
+			// issue with the database. Log and throw an unchecked exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}
@@ -92,6 +112,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 			}
 
 		} catch (Exception e) {
+			// issue with the database. Log and throw an unchecked exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}
@@ -102,20 +123,20 @@ public class ProductDataService implements DataAccessInterface<Product> {
 
 	@Override
 	public int update(Product t) {
-		
+
 		// create SQL String
-		int ID = t.getID();
-		String sql = "UPDATE `PRODUCT_TABLE` SET `NAME` = ?,  `PRICE` = ?, `BRAND_NAME` = ?, `IMAGE` = ?"
-				+ "WHERE ID = ?";
+		String sql = "UPDATE `PRODUCT_TABLE` SET `NAME` = ?,  `PRICE` = ?, `BRAND_NAME` = ?, `IMAGE` = ? WHERE ID = ?";
 
 		try {
 			// get rows affected from stmtExecute
-			int rows = jdbcTemplateObject.update(sql, t.getName(), t.getPrice(), t.getBrandName(),t.getImage(), t.getID());
+			int rows = jdbcTemplateObject.update(sql, t.getName(), t.getPrice(), t.getBrandName(), t.getImage(),
+					t.getID());
 
 			// return the result
 			return rows;
 
 		} catch (Exception e) {
+			// issue with the database. Log and throw an unchecked exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}
@@ -123,6 +144,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 
 	@Override
 	public int delete(int ID) {
+
 		// create SQL String
 		String sql = "DELETE FROM `PRODUCT_TABLE` WHERE `ID` = ?";
 
@@ -134,6 +156,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 			return rows;
 
 		} catch (Exception e) {
+			// issue with the database. Log and throw an unchecked exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}

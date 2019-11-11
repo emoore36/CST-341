@@ -27,16 +27,24 @@ public interface ProductBusinessInterface<T> {
 	 *            The ID by which to search
 	 * @return the product at the given ID
 	 */
-	public T findByID(int ID);
-	
+	public T getProductByID(int ID);
+
 	/**
-	 * Update product 
+	 * Update product
 	 * 
-	 *            The ID by which to search
+	 * The ID by which to search
+	 * 
 	 * @return the product at the given ID
 	 */
-	public int updateProduct(T product);
-	
-	public int deleteProduct(int ID);
+	public int editProduct(T product);
+
+	/**
+	 * Remove a product at the given ID.
+	 * 
+	 * @param ID
+	 *            The ID of the product to delete.
+	 * @return the number of rows affected.
+	 */
+	public int removeProduct(int ID);
 
 }
