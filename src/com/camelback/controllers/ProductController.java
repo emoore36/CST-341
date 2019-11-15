@@ -253,6 +253,24 @@ public class ProductController {
 	}
 
 	/**
+	 * Display the products page with admin functionality
+	 * 
+	 * @return allProductsAdmin page.
+	 */
+	@RequestMapping(path = "/admin", method = RequestMethod.GET)
+	public ModelAndView showAdminPage() {
+
+		try {
+
+			List<Product> products = service.getAllProducts();
+			return new ModelAndView("allProductsAdmin", "products", products);
+		} catch (DatabaseException e) {
+			return new ModelAndView("displayError");
+		}
+
+	}
+
+	/**
 	 * Set the BusinessService
 	 * 
 	 * @param service

@@ -2,68 +2,75 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+<script
+	src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
 <title>All products</title>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	function promptUser() {
 		return confirm("Are you sure you wish to delete this item?");
+	};
+</script> -->
+
+<script type="text/javascript">
+	function getProducts() {
+
+		$.ajax({
+			type : "GET",
+			url : "/Camelback_Confectionaries_Ltd/products/getAll",
+			dataType : "json",
+			success : function(data) {
+
+				// display orders in the JQuery DataTable
+				$('#products').DataTable({
+					"data" : data,
+					"columns" : [ {
+						"data" : "name"
+					}, {
+						"data" : "price"
+					}, {
+						"data" : "brandName"
+					}, {
+						"data" : "image"
+					}, ]
+				});
+			},
+			error : function(xhr, ajaxOptions, thrownError) {
+				alert(xhr.status);
+				alert(thrownError);
+			}
+		})
 
 	}
+
+	$(document).ready(getProducts);
 </script>
 
 </head>
 <body>
 	<div align="center">
-		<table class="table" align="center">
-			<thead class="thead thead-warning" align="center">
+		<table id="products" style="width: 50%" border="1" class="display">
+			<thead>
 				<tr>
-					<th align="center" scope="col">View</th>
 					<th align="center" scope="col">Name</th>
 					<th align="center" scope="col">Price</th>
 					<th align="center" scope="col">Brand</th>
 					<th align="center" scope="col">Image</th>
-					<th align="center" scope="col">Edit</th>
-					<th align="center" scope="col">Delete</th>
 				</tr>
 			</thead>
 
-			<c:forEach var="product" items="${products }">
-				<tr align="center">
-					<td scope="row"><form:form action="showOneProduct"
-							method="POST">
-							<input type="hidden" name="ID" value="${product.ID}" />
-							<input type="submit" value="View" />
-						</form:form></td>
-					<td scope="row">${product.name }</td>
-					<td scope="row">${product.price}</td>
-					<td scope="row">${product.brandName}</td>
-					<td scope="row"><img width=20%
-						src="../resources/images/${product.image }" /></td>
-					<td scope="row"><form:form action="displayUpdateForm"
-							method="POST">
+			<tbody align="center">
 
-							<input type="hidden" name="ID" value="${product.ID}" />
-							<input onclick="return promptUser();" type="submit" value="Edit" />
-
-						</form:form></td>
-					<td>
-						<form action="deleteProduct" method="POST">
-
-							<input type="hidden" name="ID" value="${product.ID}" /> <input
-								onclick="return promptUser();" type="submit" value="Delete" />
-
-						</form>
-					</td>
-
-				</tr>
-			</c:forEach>
+			</tbody>
 
 		</table>
-		<a href="add">Add Product</a>
+		<a href="add">Add Product</a><br /> <a href="admin">View Admin
+			Page</a>
+
 	</div>
 </body>
-</html>
