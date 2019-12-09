@@ -17,57 +17,57 @@
 	};
 </script>
 
-</head>
-<body>
-	<div align="center">
-		<table id="products" style="width: 50%" border="1" class="display">
-			<thead class="thead thead-warning" align="center">
-				<tr>
-					<th align="center" scope="col">View</th>
-					<th align="center" scope="col">Name</th>
-					<th align="center" scope="col">Price</th>
-					<th align="center" scope="col">Brand</th>
-					<th align="center" scope="col">Image</th>
-					<th align="center" scope="col">Edit</th>
-					<th align="center" scope="col">Delete</th>
-				</tr>
-			</thead>
+<div align="center">
+	<table id="products" style="width: 50%"
+		class="table table-striped table-responsive-sm p-1 m-1 border border-dark rounded-lg col-6 bg-light m-5 p-5 border border-dark rounded-lg shadow-lg">
+		<thead align="center">
+			<tr class="bg-primary text-light">
+				<th align="center" scope="col">View</th>
+				<th align="center" scope="col">Name</th>
+				<th align="center" scope="col">Price</th>
+				<th align="center" scope="col">Brand</th>
+				<th align="center" scope="col">Image</th>
+				<th align="center" scope="col">Edit</th>
+				<th align="center" scope="col">Delete</th>
+			</tr>
+		</thead>
 
-			<c:forEach var="product" items="${products }">
-				<tr align="center">
-					<td scope="row"><form:form action="showOneProduct"
-							method="POST">
-							<input type="hidden" name="ID" value="${product.ID}" />
-							<input type="submit" value="View" />
-						</form:form></td>
-					<td scope="row">${product.name }</td>
-					<td scope="row">${product.price}</td>
-					<td scope="row">${product.brandName}</td>
-					<td scope="row"><img width=20%
-						src="../resources/images/${product.image }" /></td>
-					<td scope="row"><form:form action="displayUpdateForm"
-							method="POST">
+		<c:forEach var="product" items="${products }">
+			<tr align="center" class="border border-dark p-1 m-1">
+				<td scope="row" class="border border-dark p-1 m-1"><form:form
+						action="showOneProduct" method="POST">
+						<input type="hidden" name="ID" value="${product.ID}" />
+						<button type="submit" class="btn btn-primary">View</button>
+					</form:form></td>
+				<td scope="row" class="border border-dark p-1 m-1">${product.name }</td>
+				<td scope="row" class="border border-dark p-1 m-1">$${product.price}</td>
+				<td scope="row" class="border border-dark p-1 m-1">${product.brandName}</td>
+				<td scope="row" class="border border-dark p-1 m-1"><img
+					width=20% src="../resources/images/${product.image }"
+					class="rounded"></td>
+				<td scope="row" class="border border-dark p-1 m-1"><form:form
+						action="displayUpdateForm" method="POST">
 
-							<input type="hidden" name="ID" value="${product.ID}" />
-							<input type="submit" value="Edit" />
+						<input type="hidden" name="ID" value="${product.ID}" />
+						<button type="submit" class="btn btn-primary">Edit</button>
 
-						</form:form></td>
-					<td>
-						<form action="deleteProduct" method="POST">
+					</form:form></td>
+				<td scope="row" class="border border-dark p-1 m-1">
+					<form action="deleteProduct" method="POST">
 
-							<input type="hidden" name="ID" value="${product.ID}" /> <input
-								onclick="return promptUser();" type="submit" value="Delete" />
+						<input type="hidden" name="ID" value="${product.ID}" />
+						<button onclick="return promptUser();" type="submit"
+							value="Delete" class="btn btn-primary">Delete</button>
 
-						</form>
-					</td>
+					</form>
+				</td>
 
-				</tr>
-			</c:forEach>
-			<tbody align="center">
+			</tr>
+		</c:forEach>
+		<tbody align="center">
 
-			</tbody>
+		</tbody>
 
-		</table>
-		<a href="add">Add Product</a>
-	</div>
-</body>
+	</table>
+	<a href="add">Add Product</a>
+</div>

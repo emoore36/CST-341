@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>Camelback Confectionaries Ltd.</title>
+<!-- <title>Camelback Confectionaries Ltd.</title> -->
 
 <!-- JQuery Code -->
 <link rel="stylesheet"

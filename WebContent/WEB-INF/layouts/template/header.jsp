@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
 	<a class="navbar-brand" href="/Camelback_Confectionaries_Ltd/dashboard">Camelback
 		Confectionaries Ltd.</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -36,15 +36,15 @@
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search"
 				placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
 		</form>
 	</div>
 </nav>
 
 <div align="center">
-	<h1>Camelback Confectionaries Ltd.</h1>
+	<h1 class = "p-4 m-4 text-primary">Camelback Confectionaries Ltd.</h1>
 	<c:if test="${notif != null }">
-		<div class="alert alert-warning alert-dismissible fade show"
+		<div class="alert alert-primary alert-dismissible fade show"
 			role="alert">
 			${notif.getMessage() }
 			<button type="button" class="close" data-dismiss="alert"

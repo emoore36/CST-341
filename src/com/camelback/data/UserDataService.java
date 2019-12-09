@@ -18,6 +18,15 @@ public class UserDataService implements DataAccessInterface<User> {
 	private JdbcTemplate jdbcTemplateObject;
 
 	@Override
+	/**
+	 * Create an instance of the relevant model to the database.
+	 * 
+	 * @param t
+	 *            - The model to create.
+	 * 
+	 * @return The number of rows affected.
+	 * @throws ItemAlreadyExistsException
+	 */
 	public int create(User user) {
 
 		System.out.println("Entering UserDataService create() with the following values: " + user.printAllValues());
@@ -30,7 +39,7 @@ public class UserDataService implements DataAccessInterface<User> {
 		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(preSQL, user.getCredentials().getUsername());
 
 		if (srs.next()) {
-			return -2;
+			return -2; // item already exists
 		}
 
 		// create SQL String
@@ -47,6 +56,7 @@ public class UserDataService implements DataAccessInterface<User> {
 			return rows;
 
 		} catch (Exception e) {
+			// database error. Log and throw checked exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}
@@ -63,24 +73,50 @@ public class UserDataService implements DataAccessInterface<User> {
 	}
 
 	@Override
+	/**
+	 * Retrieve all instances of the relevant model from the database.
+	 * 
+	 * @return a list of all instances of the model
+	 */
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
+	/**
+	 * Find the instance of the relevant model whose ID matches the given integer.
+	 * 
+	 * @param ID
+	 *            The ID of the instance to retrieve
+	 * @return an instance of the model at the requested ID
+	 */
 	public User findBy(int ID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
+	/**
+	 * Update an instance of the relevant model within the database
+	 * 
+	 * @param t
+	 *            The model instance to update
+	 * @return the number of rows affected
+	 */
 	public int update(User t) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
+	/**
+	 * Delete the instance of the relevant model in the database at the given ID
+	 * 
+	 * @param ID
+	 *            The ID of the instance to delete
+	 * @return the number of rows affected
+	 */
 	public int delete(int ID) {
 		// TODO Auto-generated method stub
 		return 0;

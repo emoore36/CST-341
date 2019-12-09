@@ -25,8 +25,14 @@ public class ProductRestService {
 	ProductBusinessInterface<Product> service;
 
 	@GetMapping("/getAll")
+	/**
+	 * Get all products from the database, print JSON.
+	 * 
+	 * @return a JSON list of products
+	 */
 	public List<Product> getProducts() {
-		System.out.println("ProductRestService getProducts() activated.");
+
+		// get all the products
 		return service.getAllProducts();
 	}
 

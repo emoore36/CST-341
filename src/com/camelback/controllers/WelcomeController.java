@@ -97,6 +97,8 @@ public class WelcomeController {
 					new Notification("Invalid credentials given. Please try again."));
 
 		} catch (DatabaseException e) {
+
+			// database error. display error page
 			mav.setViewName("displayError");
 		}
 
@@ -141,6 +143,8 @@ public class WelcomeController {
 			}
 
 		} catch (DatabaseException e) {
+
+			// database error. redirect user
 			mav.setViewName("displayError");
 		}
 
@@ -155,6 +159,8 @@ public class WelcomeController {
 	 */
 	@RequestMapping(path = "/dashboard", method = RequestMethod.GET)
 	public ModelAndView viewDashboard() {
+
+		// redirect to dashboard
 		return new ModelAndView("dashboard");
 	}
 
@@ -167,6 +173,7 @@ public class WelcomeController {
 	 */
 	private int validateCredentials(CredentialSet cred) {
 
+		// validate user's credentials
 		return securityService.authenticate(cred);
 
 	}

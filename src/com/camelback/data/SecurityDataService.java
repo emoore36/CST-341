@@ -23,10 +23,14 @@ public class SecurityDataService implements SecurityDataInterface<CredentialSet>
 	private JdbcTemplate jdbcTemplateObject;
 
 	@Override
+	/**
+	 * Find if the database contains the user's credentials.
+	 * 
+	 * @param cred
+	 *            The user credentials.
+	 * @return 1 if found, 0 if not.
+	 */
 	public int find(CredentialSet cred) {
-
-		System.out.println("Entering SecurityDataService find() with the following values:\nUsername = "
-				+ cred.getUsername() + "\nPassword = " + cred.getPassword());
 
 		// create SQL String
 		String sql = "SELECT * FROM `USER_TABLE` WHERE `USERNAME` = ? AND `PASSWORD` = ? LIMIT 1";
@@ -36,12 +40,13 @@ public class SecurityDataService implements SecurityDataInterface<CredentialSet>
 			SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, cred.getUsername(), cred.getPassword());
 
 			if (srs.next()) {
-				return 1;
+				return 1; // user found
 			} else {
-				return 0;
+				return 0; // user not found
 			}
 
 		} catch (Exception e) {
+			// database error. Throw exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}

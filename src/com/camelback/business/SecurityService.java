@@ -17,6 +17,14 @@ public class SecurityService implements SecurityInterface<CredentialSet> {
 	private SecurityDataInterface<CredentialSet> dao;
 
 	@Override
+	/**
+	 * Validate the user's credentials
+	 * 
+	 * @param cred
+	 *            the user's credentials
+	 * 
+	 * @return the number of rows retrieved
+	 */
 	public int authenticate(CredentialSet cred) {
 
 		return dao.find(cred);

@@ -77,6 +77,7 @@ public class ProductController {
 			}
 
 		} catch (DatabaseException e) {
+			// Database exception. Go back.
 			mav.setViewName("displayError");
 		}
 
@@ -262,9 +263,15 @@ public class ProductController {
 
 		try {
 
+			// retrieve products from database
 			List<Product> products = service.getAllProducts();
+
+			// return admin page
 			return new ModelAndView("allProductsAdmin", "products", products);
+
 		} catch (DatabaseException e) {
+
+			// database error. display error page
 			return new ModelAndView("displayError");
 		}
 

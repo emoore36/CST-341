@@ -32,6 +32,7 @@ public class applicationConfig {
 	 */
 	@Bean(name = "welcomeController")
 	public WelcomeController getWelcomeController() {
+		// return welcome controller
 		return new WelcomeController();
 	}
 
@@ -42,6 +43,7 @@ public class applicationConfig {
 	 */
 	@Bean(name = "productController")
 	public ProductController getProductController() {
+		// return product controller
 		return new ProductController();
 	}
 
@@ -53,6 +55,7 @@ public class applicationConfig {
 	@Bean(name = "productService")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public ProductBusinessInterface<Product> getProductService() {
+		// return product business service
 		return new ProductBusinessService(); // interchangeable concrete implementation
 	}
 
@@ -64,6 +67,7 @@ public class applicationConfig {
 	@Bean(name = "userService")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public UserBusinessInterface getUserService() {
+		// return user business service
 		return new UserBusinessService(); // interchangeable concrete implementation
 	}
 
@@ -75,6 +79,7 @@ public class applicationConfig {
 	@Bean(name = "securityService")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public SecurityInterface<CredentialSet> getSecurityService() {
+		// return security service
 		return new SecurityService(); // interchangeable concrete implementation
 	}
 
@@ -86,6 +91,7 @@ public class applicationConfig {
 	@Bean(name = "userDao")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public DataAccessInterface<User> getUserDao() {
+		// return user data service
 		return new UserDataService(); // interchangeable concrete implementation
 	}
 
@@ -97,6 +103,7 @@ public class applicationConfig {
 	@Bean(name = "securityDao")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public SecurityDataInterface<CredentialSet> getSecurityDao() {
+		// return security data service
 		return new SecurityDataService(); // interchangeable concrete implementation
 	}
 
@@ -108,6 +115,7 @@ public class applicationConfig {
 	@Bean(name = "productDao")
 	@Scope(value = "singleton", proxyMode = ScopedProxyMode.TARGET_CLASS)
 	public DataAccessInterface<Product> getProductDao() {
+		// return product data service
 		return new ProductDataService(); // interchangeable concrete implementation
 	}
 

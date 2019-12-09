@@ -51,26 +51,25 @@
 	$(document).ready(getProducts);
 </script>
 
-</head>
-<body>
-	<div align="center">
-		<table id="products" style="width: 50%" border="1" class="display">
-			<thead>
-				<tr>
-					<th align="center" scope="col">Name</th>
-					<th align="center" scope="col">Price</th>
-					<th align="center" scope="col">Brand</th>
-					<th align="center" scope="col">Image</th>
-				</tr>
-			</thead>
 
-			<tbody align="center">
+<div align="center">
+	<table id="products" style="width: 50%" border="1"
+		class="display table table-primary">
+		<thead class="bg-primary text-white">
+			<tr>
+				<th align="center" scope="col">Name</th>
+				<th align="center" scope="col">Price</th>
+				<th align="center" scope="col">Brand</th>
+				<th align="center" scope="col">Image</th>
+			</tr>
+		</thead>
 
-			</tbody>
+		<tbody align="center">
 
-		</table>
-		<a href="add">Add Product</a><br /> <a href="admin">View Admin
-			Page</a>
+		</tbody>
 
-	</div>
-</body>
+	</table>
+	<a href="add">Add Product</a><br /> <a href="admin">View Admin
+		Page</a>
+
+</div>

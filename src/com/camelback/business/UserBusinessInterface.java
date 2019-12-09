@@ -4,8 +4,6 @@ import com.camelback.beans.User;
 
 public interface UserBusinessInterface {
 
-	// TODO: Inject DAO INTERFACE
-
 	/**
 	 * Create an instance of user.
 	 * 

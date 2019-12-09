@@ -1,7 +1,6 @@
 package com.camelback.beans;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class User {
@@ -12,16 +11,16 @@ public class User {
 	@NotNull(message = "Please include last name.")
 	private String lastName;
 
-	@NotNull(message = "Please include login credentials.")
 	private CredentialSet credentials;
 
-	@Pattern(regexp = "^(.+)@(.+)$", message = "Email is invalid. Please try again.")
 	@NotNull(message = "Please include email address.")
-	@Size(min = 6, max = 25, message = "Email Address must be between 6 and 25 characters.")
+	// @Size(min = 6, max = 25, message = "Email Address must be between 6 and 25
+	// characters.")
 	private String email;
 
 	@NotNull(message = "Role must be included.")
-	@Size(min = 1, max = 20, message = "Role must be between 1 and 20 characters.")
+	// @Size(min = 1, max = 20, message = "Role must be between 1 and 20
+	// characters.")
 	private String role;
 
 	/**

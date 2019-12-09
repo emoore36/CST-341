@@ -26,6 +26,15 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	private JdbcTemplate jdbcTemplateObject;
 
 	@Override
+	/**
+	 * Create an instance of the relevant model to the database.
+	 * 
+	 * @param product
+	 *            The product to create.
+	 * 
+	 * @return The number of rows affected.
+	 * @throws ItemAlreadyExistsException
+	 */
 	public int create(Product product) {
 
 		// check and ensure that the product does not already exist
@@ -66,6 +75,11 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	}
 
 	@Override
+	/**
+	 * Retrieve all instances of the relevant model from the database.
+	 * 
+	 * @return a list of all instances of the model
+	 */
 	public List<Product> findAll() {
 
 		// create the productList to populate
@@ -85,6 +99,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 			}
 
 		} catch (Exception e) {
+			// issue with the database. Log and throw an unchecked exception.
 			e.printStackTrace();
 			throw new DatabaseException(e);
 		}
@@ -94,6 +109,13 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	}
 
 	@Override
+	/**
+	 * Find the instance of the relevant model whose ID matches the given integer.
+	 * 
+	 * @param ID
+	 *            The ID of the instance to retrieve
+	 * @return an instance of the model at the requested ID
+	 */
 	public Product findBy(int ID) {
 
 		Product product = new Product();
@@ -122,6 +144,13 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	}
 
 	@Override
+	/**
+	 * Update an instance of the relevant model within the database
+	 * 
+	 * @param t
+	 *            The model instance to update
+	 * @return the number of rows affected
+	 */
 	public int update(Product t) {
 
 		// create SQL String
@@ -143,6 +172,13 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	}
 
 	@Override
+	/**
+	 * Delete the instance of the relevant model in the database at the given ID
+	 * 
+	 * @param ID
+	 *            The ID of the instance to delete
+	 * @return the number of rows affected
+	 */
 	public int delete(int ID) {
 
 		// create SQL String

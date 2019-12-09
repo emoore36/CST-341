@@ -14,6 +14,9 @@ public interface DataAccessInterface<T> {
 	/**
 	 * Create an instance of the relevant model to the database.
 	 * 
+	 * @param t
+	 *            - The model to create.
+	 * 
 	 * @return The number of rows affected.
 	 * @throws ItemAlreadyExistsException
 	 */

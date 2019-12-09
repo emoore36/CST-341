@@ -1,42 +1,35 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Product Add Form</title>
-</head>
-<body>
-	<div align="center">
-		<form:form method="POST" action="addProduct" modelAttribute="product">
-			<h2>Please enter your product's details.</h2>
-			<table style="with: 50%">
-				<tr>
-					<td><form:label path="name">Name</form:label></td>
-					<td><form:input path="name" /></td>
 
-				</tr>
-				<tr>
-					<td><form:label path="price">Cost</form:label></td>
-					<td><form:input path="price" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="brandName">Brand Name</form:label></td>
-					<td><form:input path="brandName" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="image">Image</form:label></td>
-					<td><input type='file' name='image'></td>
-				</tr>
-			</table>
-			<input type="submit" value="Submit" />
-			<br />
-			<br />
+<div class="col-6 bg-light m-5 p-5 border border-dark rounded shadow-lg">
+	<form:form method="POST" action="addProduct" modelAttribute="product">
+		<h2 class="bg-primary col-6 p-3 rounded shadow-sm text-white">Please
+			enter your product's details.</h2>
+		<br />
+		<div class="form-group">
+			<label for="name"><strong>Name</strong></label> <input type="text"
+				class="form-control" name="name" id="name" />
+		</div>
+		<div class="form-group">
+			<label for="price"><strong>Cost</strong></label> <input type="text"
+				class="form-control" name="price" id="price" />
+		</div>
+		<div class="form-group">
+			<label for="brandName"><strong>Brand Name</strong></label> <input
+				type="text" class="form-control" name="brandName" id="brandName" />
+		</div>
+		<div class="form-group">
+			<label for="image"><strong>Image</strong></label> <input type='file'
+				name='image' class="form-control">
+		</div>
+		<br />
+		<button type="submit" class="btn btn-primary mb-5">Submit</button>
 
+		<br />
 
-			<form:errors path="*" />
-		</form:form>
-	</div>
-</body>
-</html>
+		<form:errors path="*" />
+	</form:form>
+</div>

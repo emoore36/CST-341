@@ -17,6 +17,11 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	}
 
 	@Override
+	/**
+	 * Returns all products from database
+	 * 
+	 * @return product list
+	 */
 	public List<Product> getAllProducts() {
 		return dao.findAll();
 	}
@@ -31,17 +36,41 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	}
 
 	@Override
+	/**
+	 * Returns relevant product from database
+	 * 
+	 * @param ID
+	 *            the id of the product
+	 * 
+	 * @return product
+	 */
 	public Product getProductByID(int ID) {
 		return dao.findBy(ID);
 	}
 
 	@Override
+	/**
+	 * Returns relevant product from database
+	 * 
+	 * @param Product
+	 *            the product to edit
+	 * 
+	 * @return number of rows affected
+	 */
 	public int editProduct(Product product) {
 		// TODO Auto-generated method stub
 		return dao.update(product);
 	}
 
 	@Override
+	/**
+	 * Removes the relevant product from the database
+	 * 
+	 * @param ID
+	 *            the id of the product
+	 * 
+	 * @return the number of rows affected
+	 */
 	public int removeProduct(int ID) {
 		// TODO Auto-generated method stub
 		return dao.delete(ID);

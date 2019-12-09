@@ -7,11 +7,9 @@ public class CredentialSet {
 
 	// attributes
 	@NotNull(message = "Please include username.")
-	@Size(min = 6, max = 16, message = "Username must be between 6 and 16 characters.")
 	private String username;
 
 	@NotNull(message = "Please include password.")
-	@Size(min = 6, max = 16, message = "Password must be between 6 and 16 characters.")
 	private String password;
 
 	// default constructor
