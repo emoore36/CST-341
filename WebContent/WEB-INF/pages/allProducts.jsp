@@ -22,7 +22,7 @@
 
 		$.ajax({
 			type : "GET",
-			url : "/getAll",
+			url : "/products/getAll",
 			dataType : "json",
 			success : function(data) {
 
