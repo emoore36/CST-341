@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `camelback_confectionaries_ltd` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `camelback_confectionaries_ltd`;
+-- CREATE DATABASE  IF NOT EXISTS `camelback_confectionaries_ltd` /*!40100 DEFAULT CHARACTER SET latin1 */;
+-- USE `camelback_confectionaries_ltd`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: camelback_confectionaries_ltd

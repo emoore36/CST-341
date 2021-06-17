@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-	<a class="navbar-brand" href="/Camelback_Confectionaries_Ltd/dashboard">Camelback
+	<a class="navbar-brand" href="/dashboard">Camelback
 		Confectionaries Ltd.</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
@@ -13,11 +13,11 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link"
-				href="/Camelback_Confectionaries_Ltd/dashboard">Home <span
+				href="/dashboard">Home <span
 					class="sr-only">(current)</span>
 			</a></li>
 			<li class="nav-item"><a class="nav-link"
-				href="/Camelback_Confectionaries_Ltd/product/showAll">All
+				href="/product/showAll">All
 					Products</a></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -25,7 +25,7 @@
 				aria-expanded="false"> Admin </a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item"
-						href="/Camelback_Confectionaries_Ltd/product/add">Add Product</a>
+						href="/product/add">Add Product</a>
 					<a class="dropdown-item" href="#">Another action</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">Something else here</a>

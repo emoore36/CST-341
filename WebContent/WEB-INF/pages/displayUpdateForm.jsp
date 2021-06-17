@@ -10,7 +10,7 @@
 			<form:form method="POST" action="updateProduct"
 				modelAttribute="product">
 				<h2>Update Product.</h2>
-				<table style="with: 50%">
+				<table style="width: 50%">
 					<tr>
 						<td>Name</td>
 						<td><input type="text" name="name" value="${product.name}" /></td>
