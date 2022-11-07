@@ -38,9 +38,9 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/camelback_confectionaries_ltd" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+			value="jdbc:sqlserver://camelback-confectionaries-ltd.database.windows.net:1433/camelback-confectionaries-ltd" />
+		<property name="user" value="EMoore36@my.gcu.edu@camelback-confectionaries-ltd" />
+		<property name="password" value="@'&d@p+2gV_Tjte" />
 	</bean>
 
 	<!-- Setup Transaction Manager -->
