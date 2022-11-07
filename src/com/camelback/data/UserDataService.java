@@ -79,7 +79,6 @@ public class UserDataService implements DataAccessInterface<User> {
 	 * @return a list of all instances of the model
 	 */
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -92,7 +91,6 @@ public class UserDataService implements DataAccessInterface<User> {
 	 * @return an instance of the model at the requested ID
 	 */
 	public User findBy(int ID) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -105,7 +103,6 @@ public class UserDataService implements DataAccessInterface<User> {
 	 * @return the number of rows affected
 	 */
 	public int update(User t) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -118,7 +115,6 @@ public class UserDataService implements DataAccessInterface<User> {
 	 * @return the number of rows affected
 	 */
 	public int delete(int ID) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }

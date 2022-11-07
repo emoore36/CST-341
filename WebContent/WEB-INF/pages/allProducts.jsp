@@ -22,7 +22,7 @@
 
 		$.ajax({
 			type : "GET",
-			url : "/products/getAll",
+			url : "http://localhost:8080/Camelback_Confectionaries_Ltd/products/getAll",
 			dataType : "json",
 			success : function(data) {
 
