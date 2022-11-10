@@ -58,6 +58,7 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	 * @return number of rows affected
 	 */
 	public int editProduct(Product product) {
+		// TODO Auto-generated method stub
 		return dao.update(product);
 	}
 
@@ -71,6 +72,7 @@ public class ProductBusinessService implements ProductBusinessInterface<Product>
 	 * @return the number of rows affected
 	 */
 	public int removeProduct(int ID) {
+		// TODO Auto-generated method stub
 		return dao.delete(ID);
 	}
 
