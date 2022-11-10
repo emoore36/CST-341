@@ -36,11 +36,11 @@
 	<bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver" />
+			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://dfkpczjgmpvkugnb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/v5n68pan13kwwft5" />
-		<property name="username" value="t7j2r0w8ojpwryjv" />
-		<property name="password" value="g9eb8hkl591gjpho" />
+			value="jdbc:mysql://localhost:3306/camelback_confectionaries_ltd" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
 	</bean>
 
 	<!-- Setup Transaction Manager -->
