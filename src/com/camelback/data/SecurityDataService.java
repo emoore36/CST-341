@@ -33,7 +33,7 @@ public class SecurityDataService implements SecurityDataInterface<CredentialSet>
 	public int find(CredentialSet cred) {
 
 		// create SQL String
-		String sql = "SELECT * FROM `USER_TABLE` WHERE `USERNAME` = ? AND `PASSWORD` = ? LIMIT 1";
+		String sql = "SELECT * FROM USER_TABLE WHERE USERNAME = ? AND PASSWORD = ?";
 
 		try {
 			// execute SQL and retrieve info

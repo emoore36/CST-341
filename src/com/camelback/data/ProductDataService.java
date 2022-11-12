@@ -40,7 +40,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 		// check and ensure that the product does not already exist
 		// In this case, we will consider a duplicate name OR image as a duplicate
 		// product
-		String preSQL = "SELECT * FROM `PRODUCT_TABLE` WHERE `NAME` = ? OR `IMAGE` = ?";
+		String preSQL = "SELECT * FROM PRODUCT_TABLE WHERE NAME = ? OR IMAGE = ?";
 
 		try {
 			// execute SQL and loop over
@@ -57,7 +57,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 		}
 
 		// create SQL String
-		String sql = "INSERT INTO `PRODUCT_TABLE`(`NAME`, `PRICE`, `BRAND_NAME`, `IMAGE`) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO PRODUCT_TABLE(NAME, PRICE, BRAND_NAME, IMAGE) VALUES (?,?,?,?)";
 
 		try {
 			// get rows affected from stmtExecute
@@ -86,7 +86,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 		List<Product> products = new ArrayList<Product>();
 
 		// create SQL String
-		String sql = "SELECT * FROM `PRODUCT_TABLE`";
+		String sql = "SELECT * FROM PRODUCT_TABLE";
 
 		try {
 			// execute SQL and loop over
@@ -121,7 +121,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 		Product product = new Product();
 
 		// create SQL String
-		String sql = "SELECT * FROM `PRODUCT_TABLE` WHERE `ID` = ? LIMIT 1";
+		String sql = "SELECT * FROM PRODUCT_TABLE WHERE ID = ?";
 
 		try {
 			// execute SQL and loop over
@@ -154,7 +154,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	public int update(Product t) {
 
 		// create SQL String
-		String sql = "UPDATE `PRODUCT_TABLE` SET `NAME` = ?,  `PRICE` = ?, `BRAND_NAME` = ?, `IMAGE` = ? WHERE ID = ?";
+		String sql = "UPDATE PRODUCT_TABLE SET NAME = ?,  PRICE = ?, BRAND_NAME = ?, IMAGE = ? WHERE ID = ?";
 
 		try {
 			// get rows affected from stmtExecute
@@ -182,7 +182,7 @@ public class ProductDataService implements DataAccessInterface<Product> {
 	public int delete(int ID) {
 
 		// create SQL String
-		String sql = "DELETE FROM `PRODUCT_TABLE` WHERE `ID` = ?";
+		String sql = "DELETE FROM PRODUCT_TABLE WHERE ID = ?";
 
 		try {
 			// get rows affected from stmtExecute

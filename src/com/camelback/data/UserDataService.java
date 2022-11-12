@@ -33,7 +33,7 @@ public class UserDataService implements DataAccessInterface<User> {
 
 		// check to see if user already exists
 		// In this case, assume duplicate username means duplicate user.
-		String preSQL = "SELECT * FROM `USER_TABLE` WHERE `USERNAME` = ?";
+		String preSQL = "SELECT * FROM USER_TABLE WHERE USERNAME = ?";
 
 		// execute SQL and retrieve info
 		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(preSQL, user.getCredentials().getUsername());
@@ -43,7 +43,7 @@ public class UserDataService implements DataAccessInterface<User> {
 		}
 
 		// create SQL String
-		String sql = "INSERT INTO `USER_TABLE`(`FIRST_NAME`, `LAST_NAME`, `EMAIL`, `USERNAME`, `PASSWORD`, `ROLE`) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO USER_TABLE(FIRST_NAME, LAST_NAME, EMAIL, USERNAME, PASSWORD, ROLE) VALUES (?,?,?,?,?,?)";
 
 		try {
 			// get rows affected from stmtExecute

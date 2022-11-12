@@ -36,11 +36,9 @@
 	<bean id="dataSource" destroy-method="close"
 		class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"
-			value="com.mysql.cj.jdbc.Driver" />
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/camelback_confectionaries_ltd" />
-		<property name="username" value="root" />
-		<property name="password" value="root" />
+			value="jdbc:sqlserver://camelback-confectionaries-ltd.database.windows.net:1433;database=camelback-confectionaries-ltd;user=narcissisticemo@camelback-confectionaries-ltd;password=gLMHxGR9hQVqDPS;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;" />
 	</bean>
 
 	<!-- Setup Transaction Manager -->
