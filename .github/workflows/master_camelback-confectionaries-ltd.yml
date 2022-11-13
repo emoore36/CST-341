@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'camelback-confectionaries-ltd'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F13B28B30D47431D9931CF4AF9437B22 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3F95DD51B6CC4B419008030A7A79DB29 }}
           package: '*.war'
